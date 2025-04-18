@@ -8,8 +8,13 @@ function RegisterInput({ register }) {
   const [email, handleEmailChange] = useInput("");
   const [password, handlePasswordChange] = useInput("");
 
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    register({ name, email, password });
+  };
+
   return (
-    <Form onSubmit={register}>
+    <Form onSubmit={onSubmitHandler}>
       <Form.Group className="mb-3" controlId="name">
         <Form.Label>Name</Form.Label>
         <Form.Control type="text" value={name} onChange={handleNameChange} />
@@ -26,9 +31,7 @@ function RegisterInput({ register }) {
           onChange={handlePasswordChange}
         />
       </Form.Group>
-      <Button type="submit" onClick={register(name, email, password)}>
-        Register
-      </Button>
+      <Button type="submit">Register</Button>
     </Form>
   );
 }

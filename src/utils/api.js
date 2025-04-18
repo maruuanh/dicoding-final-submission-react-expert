@@ -29,7 +29,17 @@ const api = (() => {
     });
 
     const responseJson = await response.json();
-    return responseJson;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { user },
+    } = responseJson;
+
+    return user;
   }
 
   async function login({ email, password }) {
@@ -42,32 +52,81 @@ const api = (() => {
     });
 
     const responseJson = await response.json();
-    putAccessToken(responseJson.data.accessToken);
-    return responseJson;
+
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { token },
+    } = responseJson;
+    return token;
   }
 
   async function getOwnProfile() {
     const response = await _fetchWithAuth(`${BASE_URL}/users/me`);
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { user },
+    } = responseJson;
+
+    return user;
   }
 
   async function getAllUsers() {
     const response = await _fetchWithAuth(`${BASE_URL}/users`);
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { users },
+    } = responseJson;
+
+    return users;
   }
 
   async function getAllThreads() {
     const response = await _fetchWithAuth(`${BASE_URL}/threads`);
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { threads },
+    } = responseJson;
+
+    return threads;
   }
 
   async function getThreadDetail(threadId) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads/${threadId}`);
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { thread },
+    } = responseJson;
+
+    return thread;
   }
 
   async function createThread({ title, body }) {
@@ -80,7 +139,17 @@ const api = (() => {
     });
 
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { thread },
+    } = responseJson;
+
+    return thread;
   }
 
   async function upVoteThread(threadId) {
@@ -92,7 +161,17 @@ const api = (() => {
     );
 
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { thread },
+    } = responseJson;
+
+    return thread;
   }
 
   async function downVoteThread(threadId) {
@@ -178,6 +257,8 @@ const api = (() => {
   }
 
   return {
+    putAccessToken,
+    getAccessToken,
     register,
     login,
     getOwnProfile,

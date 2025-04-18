@@ -1,35 +1,46 @@
 import React, { useEffect } from "react";
-// import TalkInput from "../components/TalkInput";
-import TalksList from "../components/TalksList";
-
+import ThreadInput from "../components/ThreadInput";
+import ThreadsList from "../components/ThreadsList";
+import { useSelector, useDispatch } from "react-redux";
+import { asyncPopulateUsersAndThreads } from "../states/shared/action";
+import {
+  asyncAddThread,
+  asyncToogleLikeThread,
+} from "../states/threads/action";
 function HomePage() {
-  const { talks = [], users = [], authUser } = {}; // @TODO: get talks, users, and authUser state from store
+  const {
+    threads = [],
+    users = [],
+    authUser,
+  } = useSelector((states) => states); // @TODO: get talks, users, and authUser state from store
 
-  const dispatch = null; // @TODO: get dispatch function from store
+  const dispatch = useDispatch(); // @TODO: get dispatch function from store
 
   useEffect(() => {
     // @TODO: dispatch async action to populate talks and users data
+    dispatch(asyncPopulateUsersAndThreads());
   }, [dispatch]);
 
-  const onAddTalk = (text) => {
-    // @TODO: dispatch async action to add talk
+  const onAddThread = (title, body) => {
+    // @TODO: dispatch async action to add thread
+    dispatch(asyncAddThread({ title, body }));
   };
 
   const onLike = (id) => {
-    // @TODO: dispatch async action to toggle like talk
+    // @TODO: dispatch async action to toggle like thread
+    dispatch(asyncToogleLikeThread(id));
   };
-
-  const talkList = talks.map((talk) => ({
-    ...talk,
-    user: users.find((user) => user.id === talk.user),
+  const threadList = threads.map((thread) => ({
+    ...thread,
+    user: users.find((user) => user.id === thread.user),
     authUser: authUser.id,
   }));
 
   return (
-    <section className="home-page">
-      {/* <TalkInput addTalk={onAddTalk} /> */}
-      <TalksList talks={talkList} like={onLike} />
-    </section>
+    <div className="home-page">
+      <ThreadInput addThread={onAddThread} />
+      <ThreadsList threads={threadList} like={onLike} />
+    </div>
   );
 }
 

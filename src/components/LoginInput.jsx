@@ -7,8 +7,13 @@ function LoginInput({ login }) {
   const [email, handleEmailChange] = useInput("");
   const [password, handlePasswordChange] = useInput("");
 
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    login({ email, password });
+  };
+
   return (
-    <Form onSubmit={login}>
+    <Form onSubmit={onSubmitHandler}>
       <Form.Group className="mb-3" controlId="email">
         <Form.Label>Email</Form.Label>
         <Form.Control type="email" value={email} onChange={handleEmailChange} />

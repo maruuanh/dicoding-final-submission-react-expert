@@ -1,46 +1,55 @@
-// import React, { useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import TalkDetail from "../components/TalkDetail";
-// import TalkItem from "../components/TalkItem";
-// import TalkReplyInput from "../components/TalkReplyInput";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  asyncReceiveThreadDetail,
+  asyncToogleLikeThreadDetail,
+} from "../states/threadDetail/action";
+import { asyncAddThread } from "../states/threads/action";
+import ThreadDetail from "../components/ThreadDetail";
+import ThreadItem from "../components/ThreadItem";
+import ThreadReplyInput from "../components/ThreadReplyInput";
 
-// function DetailPage() {
-//   const { id } = useParams();
-//   const { talkDetail = null, authUser } = {}; // @TODO: get talkDetail and authUser state from store
-//   const dispatch = null; // @TODO: get dispatch function from store
+function DetailPage() {
+  const { id } = useParams();
+  const { threadDetail = null, authUser } = useSelector((states) => states); // @TODO: get talkDetail and authUser state from store
+  const dispatch = useDispatch(); // @TODO: get dispatch function from store
 
-//   useEffect(() => {
-//     // @TODO: dispatch async action to get talk detail by id
-//   }, [id, dispatch]);
+  useEffect(() => {
+    // @TODO: dispatch async action to get thread detail by id
+    dispatch(asyncReceiveThreadDetail(id));
+  }, [id, dispatch]);
 
-//   const onLikeTalk = () => {
-//     // @TODO: dispatch async action to toggle like talk detail
-//   };
+  const onLikeThread = () => {
+    // @TODO: dispatch async action to toggle like thread detail
+    dispatch(asyncToogleLikeThreadDetail(id));
+  };
 
-//   const onReplyTalk = (text) => {
-//     // @TODO: dispatch async action to add reply talk
-//   };
+  const onReplyThread = (text) => {
+    // @TODO: dispatch async action to add reply thread
+    dispatch(asyncAddThread({ title: text, body: text }));
+  };
 
-//   if (!talkDetail) {
-//     return null;
-//   }
+  if (!threadDetail) {
+    return null;
+  }
 
-//   return (
-//     <section className="detail-page">
-//       {talkDetail.parent && (
-//         <div className="detail-page__parent">
-//           <h3>Replying To</h3>
-//           <TalkItem {...talkDetail.parent} authUser={authUser.id} />
-//         </div>
-//       )}
-//       <TalkDetail
-//         {...talkDetail}
-//         authUser={authUser.id}
-//         likeTalk={onLikeTalk}
-//       />
-//       <TalkReplyInput replyTalk={onReplyTalk} />
-//     </section>
-//   );
-// }
+  return (
+    <section className="detail-page">
+      {threadDetail.parent && (
+        <div className="detail-page__parent">
+          <h3>Replying To</h3>
+          <ThreadItem {...threadDetail.parent} authUser={authUser.id} />
+        </div>
+      )}
+      <ThreadDetail
+        {...threadDetail}
+        authUser={authUser.id}
+        likeThread={onLikeThread}
+      />
+      <ThreadReplyInput replyThread={onReplyThread} />
+    </section>
+  );
+}
 
-// export default DetailPage;
+export default DetailPage;
