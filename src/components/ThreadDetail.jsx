@@ -5,19 +5,23 @@ import { postedAt } from "../utils";
 
 function ThreadDetail({
   id,
+  title,
   body,
   createdAt,
-  likes,
+  category,
+  upVotesBy,
+  downVotesBy,
+  totalComments,
   user,
   authUser,
-  likeThread,
+  likeThread = () => {},
 }) {
-  const isTalkLiked = likes.includes(authUser);
+  // const isTalkLiked = upVotesBy.includes(authUser);
 
   return (
     <section className="talk-detail">
-      <header>
-        <img src={user.photo} alt={user} />
+      {/* <header>
+        <img src={user.avatar} alt={user} />
         <div className="talk-detail__user-info">
           <p className="talk-detail__user-name">{user.name}</p>
           <p className="talk-detail__user-id">@{user.id}</p>
@@ -39,10 +43,10 @@ function ThreadDetail({
               <FaRegHeart />
             )}
           </button>
-          <span>{likes.length} Likes</span>
+          <span>{upVotesBy.length} Likes</span>
         </div>
         <p className="talk-detail__created-at">{postedAt(createdAt)}</p>
-      </footer>
+      </footer> */}
     </section>
   );
 }
@@ -50,7 +54,7 @@ function ThreadDetail({
 const userShape = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  photo: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
 };
 
 ThreadDetail.propTypes = {
@@ -58,10 +62,12 @@ ThreadDetail.propTypes = {
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
-  likes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  totalComments: PropTypes.number.isRequired,
   user: PropTypes.shape(userShape).isRequired,
   authUser: PropTypes.string.isRequired,
-  likeThread: PropTypes.func.isRequired,
+  likeThread: PropTypes.func,
 };
 
 export default ThreadDetail;

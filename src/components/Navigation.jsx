@@ -23,7 +23,7 @@ function Navigation({ authUser }) {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="/leaderboard">
+            <Nav.Link as={Link} to="/leaderboards">
               <div className="d-flex align-items-center flex-column gap-2">
                 <IoBarChart />
                 <span>Leaderboards</span>

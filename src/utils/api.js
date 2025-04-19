@@ -250,10 +250,19 @@ const api = (() => {
     return responseJson.data;
   }
 
-  async function leaderboard() {
-    const response = await _fetchWithAuth(`${BASE_URL}/leaderboard`);
+  async function getLeaderboards() {
+    const response = await _fetchWithAuth(`${BASE_URL}/leaderboards`);
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { leaderboards },
+    } = responseJson;
+
+    return leaderboards;
   }
 
   return {
@@ -273,7 +282,7 @@ const api = (() => {
     upVoteComment,
     downVoteComment,
     neutralizeVoteComment,
-    leaderboard,
+    getLeaderboards,
   };
 })();
 

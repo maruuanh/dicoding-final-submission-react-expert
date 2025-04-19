@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  asyncReceiveThreadDetail,
-  asyncToogleLikeThreadDetail,
-} from "../states/threadDetail/action";
+import { asyncReceiveThreadDetail } from "../states/threadDetail/action";
 import { asyncAddThread } from "../states/threads/action";
 import ThreadDetail from "../components/ThreadDetail";
 import ThreadItem from "../components/ThreadItem";
@@ -20,10 +17,10 @@ function DetailPage() {
     dispatch(asyncReceiveThreadDetail(id));
   }, [id, dispatch]);
 
-  const onLikeThread = () => {
-    // @TODO: dispatch async action to toggle like thread detail
-    dispatch(asyncToogleLikeThreadDetail(id));
-  };
+  // const onLikeThread = () => {
+  //   // @TODO: dispatch async action to toggle like thread detail
+  //   dispatch(asyncToogleLikeThreadDetail(id));
+  // };
 
   const onReplyThread = (text) => {
     // @TODO: dispatch async action to add reply thread
@@ -42,11 +39,7 @@ function DetailPage() {
           <ThreadItem {...threadDetail.parent} authUser={authUser.id} />
         </div>
       )}
-      <ThreadDetail
-        {...threadDetail}
-        authUser={authUser.id}
-        likeThread={onLikeThread}
-      />
+      <ThreadDetail {...threadDetail} authUser={authUser.id} />
       <ThreadReplyInput replyThread={onReplyThread} />
     </section>
   );
