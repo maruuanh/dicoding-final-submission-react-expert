@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-
+import PropTypes from "prop-types";
 const ProfilePage = ({ profile, onSignOut }) => {
   return (
     <Container
@@ -37,3 +37,9 @@ const ProfilePage = ({ profile, onSignOut }) => {
 };
 
 export default ProfilePage;
+
+ProfilePage.propTypes = {
+  profile: PropTypes.object.isRequired,
+  onSignOut: PropTypes.func.isRequired,
+};
+

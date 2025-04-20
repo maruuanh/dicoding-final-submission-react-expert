@@ -1,7 +1,7 @@
 import React from "react";
 import { postedAt } from "../utils";
 import { MdOutlineThumbUp, MdOutlineThumbDown } from "react-icons/md";
-
+import PropTypes from "prop-types";
 function ThreadComments({
   comments,
   upVoteComment,
@@ -85,3 +85,11 @@ function ThreadComments({
 }
 
 export default ThreadComments;
+
+ThreadComments.propTypes = {
+  comments: PropTypes.array.isRequired,
+  upVoteComment: PropTypes.func.isRequired,
+  downVoteComment: PropTypes.func.isRequired,
+  neutralizeVoteComment: PropTypes.func.isRequired,
+  authUser: PropTypes.object.isRequired,
+};

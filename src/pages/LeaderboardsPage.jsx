@@ -6,13 +6,12 @@ import { asyncPopulateLeaderboards } from "../states/leaderboards/action";
 
 const LeaderboardsPage = () => {
   const dispatch = useDispatch();
-  const { leaderboards = [] } = useSelector((states) => states);
+  const leaderboards = useSelector((state) => state.leaderboards);
 
   useEffect(() => {
     dispatch(asyncPopulateLeaderboards());
   }, [dispatch]);
 
-  console.log(leaderboards);
   return (
     <Container
       fluid
@@ -21,27 +20,27 @@ const LeaderboardsPage = () => {
       <Card className="w-50">
         <Card.Body>
           <Card.Title className="text-center fs-3">Leaderboards</Card.Title>
-          <div className="d-flex justify-content-between align-items-center">
-            <Card.Text className="fs-5">Pengguna</Card.Text>
-            <Card.Text className="fs-5">Skor</Card.Text>
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <span className="fs-5">Pengguna</span>
+            <span className="fs-5">Skor</span>
           </div>
           {leaderboards.map((leaderboard) => (
-            <Card.Text
-              key={leaderboard.id}
-              className="d-flex justify-content-between align-items-center"
+            <div
+              key={leaderboard.user.id}
+              className="d-flex justify-content-between align-items-center mb-2"
             >
-              <div className="profile-leaderboard">
+              <div className="profile-leaderboard d-flex align-items-center">
                 <img
                   src={leaderboard.user.avatar}
                   alt="avatar"
                   className="rounded-circle"
                   width={40}
                   height={40}
-                />
+                />  
                 <span className="mx-2 fs-6">{leaderboard.user.name}</span>
               </div>
               <span className="mx-2 fs-4">{leaderboard.score}</span>
-            </Card.Text>
+            </div>
           ))}
         </Card.Body>
       </Card>

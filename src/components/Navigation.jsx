@@ -1,6 +1,5 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { IoChatboxEllipses, IoBarChart, IoPerson } from "react-icons/io5";
 function Navigation() {

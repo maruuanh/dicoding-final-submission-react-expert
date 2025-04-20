@@ -100,6 +100,7 @@ ThreadItem.propTypes = {
   totalComments: PropTypes.number,
   authUser: PropTypes.string,
   upVote: PropTypes.func,
+  owner: PropTypes.string,
   downVote: PropTypes.func,
   neutralizeVote: PropTypes.func,
 };

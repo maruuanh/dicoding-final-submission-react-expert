@@ -2,6 +2,7 @@ import React from "react";
 import { MdOutlineThumbUp, MdOutlineThumbDown } from "react-icons/md";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
 import { postedAt } from "../utils";
+import PropTypes from "prop-types";
 
 function UpDownVoteComment({
   upVotesBy,
@@ -118,3 +119,17 @@ function UpDownVoteComment({
 }
 
 export default UpDownVoteComment;
+
+UpDownVoteComment.propTypes = {
+  upVotesBy: PropTypes.array.isRequired,
+  downVotesBy: PropTypes.array.isRequired,
+  totalComments: PropTypes.number.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  owner: PropTypes.object.isRequired,
+  comments: PropTypes.array.isRequired,
+  upVote: PropTypes.func.isRequired,
+  downVote: PropTypes.func.isRequired,
+  neutralizeVote: PropTypes.func.isRequired,
+  authUser: PropTypes.object.isRequired,
+  isInteractive: PropTypes.bool,
+};
