@@ -1,73 +1,61 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { postedAt } from "../utils";
+import { Card } from "react-bootstrap";
+import parser from "html-react-parser";
+import CategoryBadge from "./CategoryBadge";
+import UpDownVoteComment from "./UpDownVoteComment";
 
 function ThreadDetail({
-  id,
   title,
   body,
-  createdAt,
   category,
+  createdAt,
+  owner,
   upVotesBy,
   downVotesBy,
   totalComments,
-  user,
   authUser,
-  likeThread = () => {},
 }) {
-  // const isTalkLiked = upVotesBy.includes(authUser);
-
   return (
-    <section className="talk-detail">
-      {/* <header>
-        <img src={user.avatar} alt={user} />
-        <div className="talk-detail__user-info">
-          <p className="talk-detail__user-name">{user.name}</p>
-          <p className="talk-detail__user-id">@{user.id}</p>
+    <div>
+      <Card.Title>
+        <div className="category">
+          <CategoryBadge category={category} />
         </div>
-      </header>
-      <article>
-        <p className="talk-detail__text">{body}</p>
-      </article>
-      <footer>
-        <div className="talk-detail__like">
-          <button
-            type="button"
-            aria-label="like"
-            onClick={() => likeThread(id)}
-          >
-            {isTalkLiked ? (
-              <FaHeart style={{ color: "red" }} />
-            ) : (
-              <FaRegHeart />
-            )}
-          </button>
-          <span>{upVotesBy.length} Likes</span>
+        <div className="title fw-bold text-primary mt-3">{title}</div>
+      </Card.Title>
+      <Card.Text>
+        <div className="content">{parser(body)}</div>
+        <div className="upvotes_downvotes_comments_created-at mt-2">
+          <UpDownVoteComment
+            upVotesBy={upVotesBy}
+            downVotesBy={downVotesBy}
+            totalComments={totalComments}
+            createdAt={createdAt}
+            owner={owner}
+            authUser={authUser}
+            isInteractive={false}
+          />
         </div>
-        <p className="talk-detail__created-at">{postedAt(createdAt)}</p>
-      </footer> */}
-    </section>
+      </Card.Text>
+    </div>
   );
 }
 
-const userShape = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-};
-
 ThreadDetail.propTypes = {
-  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
+  owner: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+  }).isRequired,
   upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
   downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
   totalComments: PropTypes.number.isRequired,
-  user: PropTypes.shape(userShape).isRequired,
   authUser: PropTypes.string.isRequired,
-  likeThread: PropTypes.func,
 };
 
 export default ThreadDetail;

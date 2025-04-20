@@ -2,14 +2,8 @@ import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import {
-  IoChatboxEllipsesOutline,
-  IoChatboxEllipses,
-  IoBarChart,
-  IoPerson,
-} from "react-icons/io5";
-function Navigation({ authUser }) {
-  const { id, photo, name } = authUser;
+import { IoChatboxEllipses, IoBarChart, IoPerson } from "react-icons/io5";
+function Navigation() {
   return (
     <Navbar fixed="bottom" bg="light" className="border-top">
       <Container>
@@ -43,13 +37,5 @@ function Navigation({ authUser }) {
     </Navbar>
   );
 }
-
-Navigation.propTypes = {
-  authUser: PropTypes.shape({
-    id: PropTypes.string,
-    photo: PropTypes.string,
-    name: PropTypes.string,
-  }).isRequired,
-};
 
 export default Navigation;

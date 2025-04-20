@@ -33,7 +33,6 @@ function App() {
   if (isPreload) {
     return null;
   }
-
   if (authUser === null) {
     return (
       <>

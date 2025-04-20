@@ -1,40 +1,42 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
-
+import { Form, Button } from "react-bootstrap";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import useInput from "../hooks/useInput";
 function ThreadReplyInput({ replyThread }) {
-  const [text, setText] = useState("");
-  const navigate = useNavigate("/");
+  const [content, handleContentChange, setContent] = useInput("");
 
-  function replyThreadHandler() {
-    if (text.trim()) {
-      replyThread(text);
-      setText("");
-      navigate("/");
-    }
-  }
-
-  function handleTextChange({ target }) {
-    if (target.value.length <= 320) {
-      setText(target.value);
-    }
+  function replyThreadHandler(event) {
+    event.preventDefault();
+    setContent("");
+    replyThread(content);
   }
 
   return (
-    <div className="talk-reply-input">
-      <textarea
-        type="text"
-        placeholder="Talk your reply"
-        value={text}
-        onChange={handleTextChange}
-      />
-      <p className="talk-reply-input__char-left">
-        <strong>{text.length}</strong>
-        /320
-      </p>
-      <button type="submit" onClick={replyThreadHandler}>
-        Reply
-      </button>
+    <div>
+      <Form>
+        <FloatingLabel
+          className="mb-3"
+          controlId="floatingTextarea"
+          label="Talk your reply"
+        >
+          <Form.Control
+            as="textarea"
+            placeholder="Talk your reply"
+            value={content}
+            onChange={handleContentChange}
+            style={{ height: "120px" }}
+          />
+        </FloatingLabel>
+        <Button
+          type="submit"
+          variant="secondary"
+          className="w-100"
+          onClick={replyThreadHandler}
+        >
+          Kirim
+        </Button>
+      </Form>
     </div>
   );
 }

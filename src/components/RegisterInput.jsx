@@ -31,7 +31,9 @@ function RegisterInput({ register }) {
           onChange={handlePasswordChange}
         />
       </Form.Group>
-      <Button type="submit">Register</Button>
+      <Button variant="secondary" className="w-100" type="submit">
+        Register
+      </Button>
     </Form>
   );
 }

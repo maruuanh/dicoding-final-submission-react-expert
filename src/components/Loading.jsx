@@ -3,7 +3,7 @@ import { LoadingBar } from "react-redux-loading-bar";
 
 function Loading() {
   return (
-    <div>
+    <div className="loading-container">
       <LoadingBar />
     </div>
   );

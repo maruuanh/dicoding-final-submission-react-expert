@@ -26,7 +26,9 @@ function LoginInput({ login }) {
           onChange={handlePasswordChange}
         />
       </Form.Group>
-      <Button type="submit">Login</Button>
+      <Button variant="secondary" className="w-100" type="submit">
+        Login
+      </Button>
     </Form>
   );
 }

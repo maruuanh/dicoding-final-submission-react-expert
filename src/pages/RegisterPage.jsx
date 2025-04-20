@@ -31,9 +31,9 @@ function RegisterPage() {
               </div>
               <RegisterInput register={onRegister} />
               <div className="text-center mt-3">
-                <p className="mb-0">
+                <Card.Text className="mb-0">
                   Already have an account? <Link to="/">Login</Link>
-                </p>
+                </Card.Text>
               </div>
             </Card.Body>
           </Card>

@@ -116,6 +116,7 @@ const api = (() => {
   async function getThreadDetail(threadId) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads/${threadId}`);
     const responseJson = await response.json();
+
     const { status, message } = responseJson;
 
     if (status !== "success") {
@@ -123,19 +124,19 @@ const api = (() => {
     }
 
     const {
-      data: { thread },
+      data: { detailThread: thread },
     } = responseJson;
-
+    console.log(thread);
     return thread;
   }
 
-  async function createThread({ title, body }) {
+  async function createThread({ title, body, category }) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title, body }),
+      body: JSON.stringify({ title, body, category }),
     });
 
     const responseJson = await response.json();
@@ -168,10 +169,10 @@ const api = (() => {
     }
 
     const {
-      data: { thread },
+      data: { vote },
     } = responseJson;
 
-    return thread;
+    return vote;
   }
 
   async function downVoteThread(threadId) {
@@ -183,7 +184,17 @@ const api = (() => {
     );
 
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { vote },
+    } = responseJson;
+
+    return vote;
   }
 
   async function neutralizeVoteThread(threadId) {
@@ -195,10 +206,21 @@ const api = (() => {
     );
 
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { vote },
+    } = responseJson;
+
+    return vote;
   }
 
   async function createComment({ threadId, content }) {
+    console.log(content);
     const response = await _fetchWithAuth(
       `${BASE_URL}/threads/${threadId}/comments`,
       {
@@ -223,7 +245,17 @@ const api = (() => {
     );
 
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { vote },
+    } = responseJson;
+
+    return vote;
   }
 
   async function downVoteComment(threadId, commentId) {
@@ -235,7 +267,17 @@ const api = (() => {
     );
 
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { vote },
+    } = responseJson;
+
+    return vote;
   }
 
   async function neutralizeVoteComment(threadId, commentId) {
@@ -247,7 +289,17 @@ const api = (() => {
     );
 
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== "success") {
+      throw new Error(message);
+    }
+
+    const {
+      data: { vote },
+    } = responseJson;
+
+    return vote;
   }
 
   async function getLeaderboards() {

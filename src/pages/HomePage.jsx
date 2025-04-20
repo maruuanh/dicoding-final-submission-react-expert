@@ -5,8 +5,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { asyncPopulateUsersAndThreads } from "../states/shared/action";
 import {
   asyncAddThread,
-  asyncToogleLikeThread,
+  asyncUpVoteThread,
+  asyncDownVoteThread,
+  asyncNeutralizeVoteThread,
 } from "../states/threads/action";
+
 function HomePage() {
   const {
     threads = [],
@@ -21,25 +24,42 @@ function HomePage() {
     dispatch(asyncPopulateUsersAndThreads());
   }, [dispatch]);
 
-  const onAddThread = (title, body) => {
-    // @TODO: dispatch async action to add thread
-    dispatch(asyncAddThread({ title, body }));
+  const onUpVoteThread = (id) => {
+    // @TODO: dispatch async action to toggle like thread
+    dispatch(asyncUpVoteThread(id));
   };
 
-  const onLike = (id) => {
+  const onDownVoteThread = (id) => {
     // @TODO: dispatch async action to toggle like thread
-    dispatch(asyncToogleLikeThread(id));
+    dispatch(asyncDownVoteThread(id));
   };
+
+  const onNeutralizeVoteThread = (id) => {
+    // @TODO: dispatch async action to toggle like thread
+    dispatch(asyncNeutralizeVoteThread(id));
+  };
+
+  const onAddThread = ({ title, body, category }) => {
+    dispatch(asyncAddThread({ title, body, category }));
+  };
+
   const threadList = threads.map((thread) => ({
     ...thread,
-    user: users.find((user) => user.id === thread.user),
+    owner: users.find((user) => user.id === thread.ownerId),
     authUser: authUser.id,
   }));
+
+  console.log(threadList);
 
   return (
     <div className="home-page">
       <ThreadInput addThread={onAddThread} />
-      <ThreadsList threads={threadList} like={onLike} />
+      <ThreadsList
+        threads={threadList}
+        upVoteThread={onUpVoteThread}
+        downVoteThread={onDownVoteThread}
+        neutralizeVoteThread={onNeutralizeVoteThread}
+      />
     </div>
   );
 }
