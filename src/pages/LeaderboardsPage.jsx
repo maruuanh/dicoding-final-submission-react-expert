@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
-import { useSelector, useDispatch } from "react-redux";
-import { asyncPopulateLeaderboards } from "../states/leaderboards/action";
+import React, { useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import { useSelector, useDispatch } from 'react-redux';
+import { asyncPopulateLeaderboards } from '../states/leaderboards/action';
 
 const LeaderboardsPage = () => {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const LeaderboardsPage = () => {
                   className="rounded-circle"
                   width={40}
                   height={40}
-                />  
+                />
                 <span className="mx-2 fs-6">{leaderboard.user.name}</span>
               </div>
               <span className="mx-2 fs-4">{leaderboard.score}</span>

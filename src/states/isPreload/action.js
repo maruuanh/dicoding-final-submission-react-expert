@@ -1,9 +1,9 @@
-import api from "../../utils/api";
-import { setAuthUserActionCreator } from "../authUser/action";
-import { showLoading, hideLoading } from "react-redux-loading-bar";
+import api from '../../utils/api';
+import { setAuthUserActionCreator } from '../authUser/action';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
 const ActionType = {
-  SET_IS_PRELOAD: "SET_IS_PRELOAD",
+  SET_IS_PRELOAD: 'SET_IS_PRELOAD',
 };
 
 function setIsPreloadActionCreator(isPreload) {
@@ -21,7 +21,7 @@ function asyncPreloadProcess() {
     try {
       const authUser = await api.getOwnProfile();
       if (Object.keys(authUser).length === 0) {
-        throw new Error("User not found");
+        throw new Error('User not found');
       }
 
       dispatch(setAuthUserActionCreator(authUser));

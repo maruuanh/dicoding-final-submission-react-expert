@@ -1,12 +1,12 @@
 /**
  * @TODO: Define all the actions (creator) for the authUser state
  */
-import api from "../../utils/api";
-import { showLoading, hideLoading } from "react-redux-loading-bar";
+import api from '../../utils/api';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
 const ActionType = {
-  SET_AUTH_USER: "SET_AUTH_USER",
-  UNSET_AUTH_USER: "UNSET_AUTH_USER",
+  SET_AUTH_USER: 'SET_AUTH_USER',
+  UNSET_AUTH_USER: 'UNSET_AUTH_USER',
 };
 
 function setAuthUserActionCreator(authUser) {
@@ -47,7 +47,7 @@ function asyncSetAuthUser({ email, password }) {
 function asyncUnsetAuthUser() {
   return (dispatch) => {
     dispatch(unsetAuthUserActionCreator());
-    api.putAccessToken("");
+    api.putAccessToken('');
   };
 }
 

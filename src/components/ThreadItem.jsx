@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import parser from "html-react-parser";
-import CategoryBadge from "./CategoryBadge";
-import UpDownVoteComment from "./UpDownVoteComment";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import parser from 'html-react-parser';
+import CategoryBadge from './CategoryBadge';
+import UpDownVoteComment from './UpDownVoteComment';
 
 function ThreadItem({
   id,
@@ -27,7 +27,7 @@ function ThreadItem({
   };
 
   const onThreadPress = (event) => {
-    if (event.key === "Enter" || event.key === " ") {
+    if (event.key === 'Enter' || event.key === ' ') {
       navigate(`/threads/${id}`);
     }
   };
@@ -51,25 +51,25 @@ function ThreadItem({
   };
 
   return (
-    <Card className="my-3" key={id}>
+    <Card className='my-3' key={id}>
       <Card.Body>
         <Card.Title>
-          <div className="category">
+          <div className='category'>
             <CategoryBadge category={category} />
           </div>
           <div
-            className="title fw-semibold text-primary mt-3"
+            className='title fw-semibold text-primary mt-3'
             onClick={onThreadClick}
             onKeyDown={onThreadPress}
-            role="button"
+            role='button'
             tabIndex={0}
           >
             {title}
           </div>
         </Card.Title>
-        <div className="card-text">
-          <div className="content">{parser(body)}</div>
-          <div className="upvotes_downvotes_comments_created-at mt-2">
+        <div className='card-text'>
+          <div className='content'>{parser(body)}</div>
+          <div className='upvotes_downvotes_comments_created-at mt-2'>
             <UpDownVoteComment
               upVotesBy={upVotesBy}
               downVotesBy={downVotesBy}

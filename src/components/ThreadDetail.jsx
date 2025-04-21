@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Card } from "react-bootstrap";
-import parser from "html-react-parser";
-import CategoryBadge from "./CategoryBadge";
-import UpDownVoteComment from "./UpDownVoteComment";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
+import parser from 'html-react-parser';
+import CategoryBadge from './CategoryBadge';
+import UpDownVoteComment from './UpDownVoteComment';
 
 function ThreadDetail({
   title,
@@ -19,14 +19,14 @@ function ThreadDetail({
   return (
     <div>
       <Card.Title>
-        <div className="category">
+        <div className='category'>
           <CategoryBadge category={category} />
         </div>
-        <div className="title fw-bold text-primary mt-3">{title}</div>
+        <div className='title fw-bold text-primary mt-3'>{title}</div>
       </Card.Title>
       <Card.Text>
-        <div className="content">{parser(body)}</div>
-        <div className="upvotes_downvotes_comments_created-at mt-2">
+        <div className='content'>{parser(body)}</div>
+        <div className='upvotes_downvotes_comments_created-at mt-2'>
           <UpDownVoteComment
             upVotesBy={upVotesBy}
             downVotesBy={downVotesBy}

@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import LoginPage from "./pages/LoginPage";
-import HomePage from "./pages/HomePage";
-import Loading from "./components/Loading";
-import Navigation from "./components/Navigation";
-import RegisterPage from "./pages/RegisterPage";
-import { useNavigate } from "react-router-dom";
-import { asyncPreloadProcess } from "./states/isPreload/action";
-import { asyncUnsetAuthUser } from "./states/authUser/action";
-import ProfilePage from "./pages/ProfilePage";
-import LeaderboardsPage from "./pages/LeaderboardsPage";
-import DetailPage from "./pages/DetailPage";
+import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
+import Loading from './components/Loading';
+import Navigation from './components/Navigation';
+import RegisterPage from './pages/RegisterPage';
+import { useNavigate } from 'react-router-dom';
+import { asyncPreloadProcess } from './states/isPreload/action';
+import { asyncUnsetAuthUser } from './states/authUser/action';
+import ProfilePage from './pages/ProfilePage';
+import LeaderboardsPage from './pages/LeaderboardsPage';
+import DetailPage from './pages/DetailPage';
+
 function App() {
   const { authUser = null, isPreload = false } = useSelector(
     (states) => states
@@ -27,7 +28,7 @@ function App() {
   const onSignOut = () => {
     // @TODO: dispatch async action to sign out
     dispatch(asyncUnsetAuthUser());
-    navigate("/");
+    navigate('/');
   };
 
   if (isPreload) {

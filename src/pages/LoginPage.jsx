@@ -1,10 +1,10 @@
-import React from "react";
-import { IoEarthOutline } from "react-icons/io5";
-import { useDispatch } from "react-redux";
-import { Container, Row, Col, Card } from "react-bootstrap";
-import LoginInput from "../components/LoginInput";
-import { Link } from "react-router-dom";
-import { asyncSetAuthUser } from "../states/authUser/action";
+import React from 'react';
+import { IoEarthOutline } from 'react-icons/io5';
+import { useDispatch } from 'react-redux';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import LoginInput from '../components/LoginInput';
+import { Link } from 'react-router-dom';
+import { asyncSetAuthUser } from '../states/authUser/action';
 function LoginPage() {
   const dispatch = useDispatch();
   const onLogin = ({ email, password }) => {
@@ -27,17 +27,16 @@ function LoginPage() {
               <div className="text-center mb-4">
                 <IoEarthOutline size={50} className="text-primary" />
                 <h2 className="mt-3">
-                  Dicoding <strong>Threads</strong>, <br />
+                  Dicoding <strong>Threads</strong>
                 </h2>
                 <h5>Open your thoughts</h5>
               </div>
 
               <LoginInput login={onLogin} />
 
-              <div className="text-center mt-3">
-                <p className="mb-0">
-                  Don&apos;t have an account?{" "}
-                  <Link to="/register">Register</Link>
+              <div className='text-center mt-3'>
+                <p className='mb-0'>
+                  Don&apos;t have an account? <Link to='/register'>Register</Link>
                 </p>
               </div>
             </Card.Body>

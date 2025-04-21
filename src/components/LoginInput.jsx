@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Form, Button } from "react-bootstrap";
-import useInput from "../hooks/useInput";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Form, Button } from 'react-bootstrap';
+import useInput from '../hooks/useInput';
 
 function LoginInput({ login }) {
-  const [email, handleEmailChange] = useInput("");
-  const [password, handlePasswordChange] = useInput("");
+  const [email, handleEmailChange] = useInput('');
+  const [password, handlePasswordChange] = useInput('');
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -14,19 +14,23 @@ function LoginInput({ login }) {
 
   return (
     <Form onSubmit={onSubmitHandler}>
-      <Form.Group className="mb-3" controlId="email">
+      <Form.Group className='mb-3' controlId='email'>
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" value={email} onChange={handleEmailChange} />
+        <Form.Control
+          type='email'
+          value={email}
+          onChange={handleEmailChange}
+        />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="password">
+      <Form.Group className='mb-3' controlId='password'>
         <Form.Label>Password</Form.Label>
         <Form.Control
-          type="password"
+          type='password'
           value={password}
           onChange={handlePasswordChange}
         />
       </Form.Group>
-      <Button variant="secondary" className="w-100" type="submit">
+      <Button variant='secondary' className='w-100' type='submit'>
         Login
       </Button>
     </Form>
