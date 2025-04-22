@@ -39,8 +39,8 @@ function App() {
         <Loading />
         <main>
           <Routes>
-            <Route path='/*' element={<LoginPage />} />
-            <Route path='/register' element={<RegisterPage />} />
+            <Route path="/*" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
           </Routes>
         </main>
       </>
@@ -50,18 +50,16 @@ function App() {
   return (
     <>
       <Loading />
-      <div className='app-container'>
-        <main className='pb-5'>
+      <div className="app-container">
+        <main className="pb-5">
           <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/leaderboards' element={<LeaderboardsPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/leaderboards" element={<LeaderboardsPage />} />
             <Route
-              path='/profile'
-              element={
-                <ProfilePage profile={authUser} onSignOut={onSignOut} />
-              }
+              path="/profile"
+              element={<ProfilePage profile={authUser} onSignOut={onSignOut} />}
             />
-            <Route path='/threads/:id' element={<DetailPage />} />
+            <Route path="/threads/:id" element={<DetailPage />} />
           </Routes>
         </main>
         <Navigation authUser={authUser} />

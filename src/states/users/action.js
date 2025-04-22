@@ -1,5 +1,9 @@
 import api from '../../utils/api';
+<<<<<<< HEAD
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
+=======
+
+>>>>>>> 3c7d4bde5e98d517a75ae9a1b7764a64d43e72eb
 const ActionType = {
   RECEIVE_USERS: 'RECEIVE_USERS',
 };
