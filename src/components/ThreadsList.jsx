@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import ThreadItem, { threadItemShape } from "./ThreadItem";
-import { Container } from "react-bootstrap";
-import CategoryBadge from "./CategoryBadge";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import ThreadItem, { threadItemShape } from './ThreadItem';
+import { Container } from 'react-bootstrap';
+import CategoryBadge from './CategoryBadge';
 
 function ThreadsList({
   threads,
@@ -43,13 +43,13 @@ function ThreadsList({
   return (
     <Container
       fluid
-      className="pb-5 px-5 d-flex flex-column gap-3 justify-content-center align-items-center"
+      className='pb-5 px-5 d-flex flex-column gap-3 justify-content-center align-items-center'
     >
-      <div className="w-50">
-        <p className="text-start fs-4 fw-semibold">Diskusi Tersedia</p>
+      <div className='w-50'>
+        <p className='text-start fs-4 fw-semibold'>Diskusi Tersedia</p>
         <div>
-          <p className="fs-5 fw-semibold">Kategori Populer</p>
-          <div className="d-flex gap-2 flex-wrap">
+          <p className='fs-5 fw-semibold'>Kategori Populer</p>
+          <div className='d-flex gap-2 flex-wrap'>
             {uniqueCategories.map((category) => (
               <CategoryBadge
                 key={category}

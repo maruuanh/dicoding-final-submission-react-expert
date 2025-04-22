@@ -1,16 +1,16 @@
 /**
  * @TODO: Define all the actions (creator) for the threadDetail state
  */
-import api from "../../utils/api";
-import { showLoading, hideLoading } from "react-redux-loading-bar";
+import api from '../../utils/api';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
 const ActionType = {
-  RECEIVE_THREAD_DETAIL: "RECEIVE_THREAD_DETAIL",
-  CLEAR_THREAD_DETAIL: "CLEAR_THREAD_DETAIL",
-  ADD_COMMENT_THREAD_DETAIL: "ADD_COMMENT_THREAD_DETAIL",
-  UP_VOTE_COMMENT: "UP_VOTE_COMMENT",
-  DOWN_VOTE_COMMENT: "DOWN_VOTE_COMMENT",
-  NEUTRALIZE_VOTE_COMMENT: "NEUTRALIZE_VOTE_COMMENT",
+  RECEIVE_THREAD_DETAIL: 'RECEIVE_THREAD_DETAIL',
+  CLEAR_THREAD_DETAIL: 'CLEAR_THREAD_DETAIL',
+  ADD_COMMENT_THREAD_DETAIL: 'ADD_COMMENT_THREAD_DETAIL',
+  UP_VOTE_COMMENT: 'UP_VOTE_COMMENT',
+  DOWN_VOTE_COMMENT: 'DOWN_VOTE_COMMENT',
+  NEUTRALIZE_VOTE_COMMENT: 'NEUTRALIZE_VOTE_COMMENT',
 };
 
 function receiveThreadDetailActionCreator(threadDetail) {

@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import ThreadInput from "../components/ThreadInput";
-import ThreadsList from "../components/ThreadsList";
-import { useSelector, useDispatch } from "react-redux";
-import { asyncPopulateUsersAndThreads } from "../states/shared/action";
+import React, { useEffect } from 'react';
+import ThreadInput from '../components/ThreadInput';
+import ThreadsList from '../components/ThreadsList';
+import { useSelector, useDispatch } from 'react-redux';
+import { asyncPopulateUsersAndThreads } from '../states/shared/action';
 import {
   asyncAddThread,
   asyncUpVoteThread,
   asyncDownVoteThread,
   asyncNeutralizeVoteThread,
-} from "../states/threads/action";
+} from '../states/threads/action';
 
 function HomePage() {
   const {
@@ -52,7 +52,7 @@ function HomePage() {
   console.log(threadList);
 
   return (
-    <div className="home-page">
+    <div className='home-page'>
       <ThreadInput addThread={onAddThread} />
       <ThreadsList
         threads={threadList}

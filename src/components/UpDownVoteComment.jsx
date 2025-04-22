@@ -1,8 +1,8 @@
-import React from "react";
-import { MdOutlineThumbUp, MdOutlineThumbDown } from "react-icons/md";
-import { IoChatboxEllipsesOutline } from "react-icons/io5";
-import { postedAt } from "../utils";
-import PropTypes from "prop-types";
+import React from 'react';
+import { MdOutlineThumbUp, MdOutlineThumbDown } from 'react-icons/md';
+import { IoChatboxEllipsesOutline } from 'react-icons/io5';
+import { postedAt } from '../utils';
+import PropTypes from 'prop-types';
 
 function UpDownVoteComment({
   upVotesBy,
@@ -21,8 +21,8 @@ function UpDownVoteComment({
     totalComments !== undefined
       ? totalComments
       : comments
-      ? comments.length
-      : 0;
+        ? comments.length
+        : 0;
 
   const hasUpVoted = authUser && upVotesBy.includes(authUser);
   const hasDownVoted = authUser && downVotesBy.includes(authUser);
@@ -54,64 +54,64 @@ function UpDownVoteComment({
   };
 
   return (
-    <div className="d-flex align-items-center gap-2">
-      <div className="upvotes d-flex align-items-center gap-1">
+    <div className='d-flex align-items-center gap-2'>
+      <div className='upvotes d-flex align-items-center gap-1'>
         {isInteractive ? (
           <button
-            className="border-0 bg-transparent"
+            className='border-0 bg-transparent'
             style={{
               padding: 0,
               margin: 0,
-              color: hasUpVoted ? "blue" : "inherit",
+              color: hasUpVoted ? 'blue' : 'inherit',
             }}
             onClick={onUpVote}
           >
             <MdOutlineThumbUp />
           </button>
         ) : (
-          <span style={{ color: hasUpVoted ? "blue" : "inherit" }}>
+          <span style={{ color: hasUpVoted ? 'blue' : 'inherit' }}>
             <MdOutlineThumbUp />
           </span>
         )}
         <span>{upVotesBy.length}</span>
       </div>
-      <div className="downvotes d-flex align-items-center gap-1">
+      <div className='downvotes d-flex align-items-center gap-1'>
         {isInteractive ? (
           <button
-            className="border-0 bg-transparent"
+            className='border-0 bg-transparent'
             style={{
               padding: 0,
               margin: 0,
-              color: hasDownVoted ? "red" : "inherit",
+              color: hasDownVoted ? 'red' : 'inherit',
             }}
             onClick={onDownVote}
           >
             <MdOutlineThumbDown />
           </button>
         ) : (
-          <span style={{ color: hasDownVoted ? "red" : "inherit" }}>
+          <span style={{ color: hasDownVoted ? 'red' : 'inherit' }}>
             <MdOutlineThumbDown />
           </span>
         )}
         <span>{downVotesBy.length}</span>
       </div>
       {commentCount > 0 && (
-        <div className="comments d-flex align-items-center gap-1">
+        <div className='comments d-flex align-items-center gap-1'>
           <IoChatboxEllipsesOutline />
           <span>{commentCount}</span>
         </div>
       )}
-      <div className="owner d-flex align-items-center gap-1">
+      <div className='owner d-flex align-items-center gap-1'>
         <span>Dibuat oleh </span>
         <img
           src={owner.avatar}
           alt={owner.name}
-          className="rounded-circle"
-          style={{ width: "20px", height: "20px" }}
+          className='rounded-circle'
+          style={{ width: '20px', height: '20px' }}
         />
         <span> {owner.name}</span>
       </div>
-      <div className="created-at">
+      <div className='created-at'>
         <span>{postedAt(createdAt)}</span>
       </div>
     </div>

@@ -2,17 +2,17 @@
  * @TODO: Define all the actions (creator) for the talks state
  */
 
-import api from "../../utils/api";
-import { showLoading, hideLoading } from "react-redux-loading-bar";
+import api from '../../utils/api';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
 const ActionType = {
-  RECEIVE_THREADS: "RECEIVE_THREADS",
-  ADD_THREAD: "ADD_THREAD",
-  UP_VOTE_THREAD: "UP_VOTE_THREAD",
-  DOWN_VOTE_THREAD: "DOWN_VOTE_THREAD",
-  NEUTRALIZE_VOTE_THREAD: "NEUTRALIZE_VOTE_THREAD",
-  FILTER_THREADS_BY_CATEGORY: "FILTER_THREADS_BY_CATEGORY",
-  ADD_COMMENT: "ADD_COMMENT",
+  RECEIVE_THREADS: 'RECEIVE_THREADS',
+  ADD_THREAD: 'ADD_THREAD',
+  UP_VOTE_THREAD: 'UP_VOTE_THREAD',
+  DOWN_VOTE_THREAD: 'DOWN_VOTE_THREAD',
+  NEUTRALIZE_VOTE_THREAD: 'NEUTRALIZE_VOTE_THREAD',
+  FILTER_THREADS_BY_CATEGORY: 'FILTER_THREADS_BY_CATEGORY',
+  ADD_COMMENT: 'ADD_COMMENT',
 };
 
 function receiveThreadsActionCreator(threads) {
