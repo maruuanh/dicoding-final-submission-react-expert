@@ -2,5 +2,6 @@
   "tabWidth": 2,
   "useTabs": false,
   "indentStyle": "space",
-  "indentSwitchCase": true
-} 
+  "indentSwitchCase": true,
+  "quotes": ["error", "single"]
+}
