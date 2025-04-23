@@ -20,6 +20,7 @@ function LoginInput({ login }) {
           type='email'
           value={email}
           onChange={handleEmailChange}
+          placeholder='Email'
         />
       </Form.Group>
       <Form.Group className='mb-3' controlId='password'>
@@ -28,6 +29,7 @@ function LoginInput({ login }) {
           type='password'
           value={password}
           onChange={handlePasswordChange}
+          placeholder='Password'
         />
       </Form.Group>
       <Button variant='secondary' className='w-100' type='submit'>

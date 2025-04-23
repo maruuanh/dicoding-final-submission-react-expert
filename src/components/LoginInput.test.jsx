@@ -1,23 +1,42 @@
 import React from 'react';
-import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { describe, it, expect, afterEach } from 'vitest';
+import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import matchers from '@testing-library/jest-dom/matchers';
 import LoginInput from './LoginInput';
 
-expect.extend(matchers);
+// Custom matcher untuk toHaveValue
+expect.extend({
+  toHaveValue(received, value) {
+    const pass = received.value === value;
+    if (pass) {
+      return {
+        message: () => `expected ${received} not to have value "${value}"`,
+        pass: true,
+      };
+    } else {
+      return {
+        message: () => `expected ${received} to have value "${value}", but got "${received.value}"`,
+        pass: false,
+      };
+    }
+  },
+});
+
 describe('LoginInput component', () => {
+  afterEach(() => {
+    cleanup();
+  });
   it('should handle username typing correctly', async () => {
-    render(<LoginInput login={() => {}} />);
-    const usernameInput = await screen.getByPlaceholderText('Username');
+    render(<LoginInput login={() => { }} />);
+    const emailInput = await screen.getByPlaceholderText('Email');
 
-    await userEvent.type(usernameInput, 'usernametest');
+    await userEvent.type(emailInput, 'test@email.com');
 
-    expect(usernameInput).toHaveValue('usernametest');
+    expect(emailInput).toHaveValue('test@email.com');
   });
   it('should handle password typing correctly', async () => {
     // Arrange
-    render(<LoginInput login={() => {}} />);
+    render(<LoginInput login={() => { }} />);
     const passwordInput = await screen.getByPlaceholderText('Password');
     // Action
     await userEvent.type(passwordInput, 'passwordtest');

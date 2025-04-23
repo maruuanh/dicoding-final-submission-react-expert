@@ -1,3 +1,10 @@
+import { it, afterEach, beforeEach, describe, vi, expect } from 'vitest';
+import api from '../../utils/api';
+import { asyncPopulateUsersAndThreads } from './action';
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
+import { receiveThreadsActionCreator } from '../threads/action';
+import { receiveUsersActionCreator } from '../users/action';
+
 const fakeThreadsResponse = [
   {
     id: 'thread-1',
@@ -22,13 +29,6 @@ const fakeUsersResponse = [
 ];
 
 const fakeErrorResponse = new Error('Ups, something went wrong!');
-
-import { it, afterEach, beforeEach, describe, vi, expect } from 'vitest';
-import api from '../../utils/api';
-import { asyncPopulateUsersAndThreads } from './action';
-import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import { receiveThreadsActionCreator } from '../threads/action';
-import { receiveUsersActionCreator } from '../users/action';
 
 describe('asyncPopulateUsersAndThreads thunk', () => {
   beforeEach(() => {
