@@ -16,22 +16,22 @@ function ThreadReplyInput({ replyThread }) {
     <div>
       <Form>
         <FloatingLabel
-          className='mb-3'
-          controlId='floatingTextarea'
-          label='Talk your reply'
+          className="mb-3"
+          controlId="floatingTextarea"
+          label="Your reply"
         >
           <Form.Control
-            as='textarea'
-            placeholder='Talk your reply'
+            as="textarea"
+            placeholder="Your reply"
             value={content}
             onChange={handleContentChange}
             style={{ height: '120px' }}
           />
         </FloatingLabel>
         <Button
-          type='submit'
-          variant='secondary'
-          className='w-100'
+          type="submit"
+          variant="secondary"
+          className="w-100"
           onClick={replyThreadHandler}
         >
           Kirim

@@ -1,10 +1,12 @@
-import { it, afterEach, beforeEach, describe, vi, expect } from 'vitest';
-import api from '../../utils/api';
-import { asyncPopulateUsersAndThreads } from './action';
+import api from '../../../utils/api';
+import { asyncPopulateUsersAndThreads } from '../../../states/shared/action';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import { receiveThreadsActionCreator } from '../threads/action';
-import { receiveUsersActionCreator } from '../users/action';
-
+import { receiveThreadsActionCreator } from '../../../states/threads/action';
+import { receiveUsersActionCreator } from '../../../states/users/action';
+import '@testing-library/jest-dom';
+/**
+ * @jest-environment jsdom
+ */
 const fakeThreadsResponse = [
   {
     id: 'thread-1',
@@ -17,6 +19,17 @@ const fakeThreadsResponse = [
     downVotesBy: [],
     totalComments: 0,
   },
+  {
+    id: 'thread-2',
+    title: 'Thread Kedua',
+    body: 'Ini adalah thread kedua',
+    category: 'General',
+    createdAt: '2021-06-21T07:00:00.000Z',
+    ownerId: 'users-2',
+    upVotesBy: [],
+    downVotesBy: [],
+    totalComments: 0,
+  },
 ];
 
 const fakeUsersResponse = [
@@ -24,6 +37,12 @@ const fakeUsersResponse = [
     id: 'john_doe',
     name: 'John Doe',
     email: 'john@example.com',
+    avatar: 'https://generated-image-url.jpg',
+  },
+  {
+    id: 'jane_doe',
+    name: 'Jane Doe',
+    email: 'jane@example.com',
     avatar: 'https://generated-image-url.jpg',
   },
 ];
@@ -48,7 +67,7 @@ describe('asyncPopulateUsersAndThreads thunk', () => {
     api.getAllUsers = () => Promise.resolve(fakeUsersResponse);
     api.getAllThreads = () => Promise.resolve(fakeThreadsResponse);
 
-    const dispatch = vi.fn();
+    const dispatch = jest.fn();
 
     await asyncPopulateUsersAndThreads()(dispatch);
 
@@ -67,9 +86,9 @@ describe('asyncPopulateUsersAndThreads thunk', () => {
     api.getAllUsers = () => Promise.reject(fakeErrorResponse);
     api.getAllThreads = () => Promise.reject(fakeErrorResponse);
     // mock dispatch
-    const dispatch = vi.fn();
+    const dispatch = jest.fn();
     // mock alert
-    window.alert = vi.fn();
+    window.alert = jest.fn();
     // action
     await asyncPopulateUsersAndThreads()(dispatch);
     // assert

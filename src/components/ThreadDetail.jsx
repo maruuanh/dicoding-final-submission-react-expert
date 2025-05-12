@@ -13,27 +13,29 @@ function ThreadDetail({
   owner,
   upVotesBy,
   downVotesBy,
-  totalComments,
   authUser,
 }) {
   return (
     <div>
       <Card.Title>
-        <div className='category'>
-          <CategoryBadge category={category} />
-        </div>
-        <div className='title fw-bold text-primary mt-3'>{title}</div>
+        <CategoryBadge category={category} setPointer={false} />
+
+        <p className="title fw-bold text-primary mt-3">{title}</p>
       </Card.Title>
-      <Card.Text>
-        <div className='content'>{parser(body)}</div>
-        <div className='upvotes_downvotes_comments_created-at mt-2'>
+      <Card.Text as="div">
+        <div className="content">{parser(body)}</div>
+        <div className="upvotes_downvotes_comments_created-at mt-2">
           <UpDownVoteComment
             upVotesBy={upVotesBy}
             downVotesBy={downVotesBy}
-            totalComments={totalComments}
+            totalComments={null}
             createdAt={createdAt}
             owner={owner}
             authUser={authUser}
+            upVote={null}
+            downVote={null}
+            neutralizeVote={null}
+            comments={null}
             isInteractive={false}
           />
         </div>
@@ -54,7 +56,7 @@ ThreadDetail.propTypes = {
   }).isRequired,
   upVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
   downVotesBy: PropTypes.arrayOf(PropTypes.string).isRequired,
-  totalComments: PropTypes.number.isRequired,
+  totalComments: PropTypes.number,
   authUser: PropTypes.string.isRequired,
 };
 

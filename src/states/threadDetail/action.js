@@ -78,7 +78,7 @@ function asyncReceiveThreadDetail(threadId) {
       const threadDetail = await api.getThreadDetail(threadId);
       dispatch(receiveThreadDetailActionCreator(threadDetail));
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     } finally {
       dispatch(hideLoading());
     }
@@ -104,6 +104,7 @@ function asyncUpVoteComment(commentId) {
     const { authUser, threadDetail } = getState();
     dispatch(upVoteCommentActionCreator(authUser.id, commentId));
 
+    
     try {
       await api.upVoteComment(threadDetail.id, commentId);
     } catch (error) {

@@ -9,7 +9,6 @@ import {
   asyncNeutralizeVoteComment,
 } from '../states/threadDetail/action';
 import ThreadDetail from '../components/ThreadDetail';
-import ThreadItem from '../components/ThreadItem';
 import ThreadReplyInput from '../components/ThreadReplyInput';
 import { Container, Card } from 'react-bootstrap';
 import ThreadComments from '../components/ThreadComments';
@@ -43,30 +42,22 @@ function DetailPage() {
     return null;
   }
 
-  console.log(threadDetail);
-
   return (
-    <section className='detail-page'>
-      {threadDetail.parent && (
-        <div className='detail-page__parent'>
-          <h3>Replying To</h3>
-          <ThreadItem {...threadDetail.parent} authUser={authUser.id} />
-        </div>
-      )}
+    <section className="detail-page">
       <Container
         fluid
-        className='py-5 d-flex justify-content-center flex-column align-items-center h-100'
+        className="py-5 d-flex justify-content-center flex-column align-items-center h-100"
       >
-        <Card className='shadow-sm w-50'>
+        <Card className="shadow-sm w-50">
           <Card.Body>
             <ThreadDetail
               {...threadDetail}
               authUser={authUser.id}
               comments={threadDetail.comments}
             />
-            <p className='fw-semibold fs-5 mt-2'>Beri komentar</p>
+            <p className="fw-semibold fs-5 mt-2">Beri komentar</p>
             <ThreadReplyInput replyThread={onReplyThread} />
-            <div className='mt-3'>
+            <div className="mt-3">
               <ThreadComments
                 comments={threadDetail.comments}
                 upVoteComment={onUpVoteComment}

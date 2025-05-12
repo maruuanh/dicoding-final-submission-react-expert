@@ -139,20 +139,6 @@ function asyncNeutralizeVoteThread(threadId) {
   };
 }
 
-function asyncAddComment({ threadId, content }) {
-  return async (dispatch) => {
-    dispatch(showLoading());
-    try {
-      const comment = await api.createComment({ threadId, content });
-      dispatch(addCommentActionCreator({ threadId, comment }));
-    } catch (error) {
-      alert(error.message);
-    } finally {
-      dispatch(hideLoading());
-    }
-  };
-}
-
 export {
   ActionType,
   receiveThreadsActionCreator,
@@ -166,5 +152,4 @@ export {
   asyncUpVoteThread,
   asyncDownVoteThread,
   asyncNeutralizeVoteThread,
-  asyncAddComment,
 };

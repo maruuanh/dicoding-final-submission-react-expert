@@ -19,6 +19,8 @@ function asyncRegisterUser({ name, email, password }) {
       await api.register({ name, email, password });
     } catch (error) {
       alert(error.message);
+      console.error(error);
+      throw error;
     } finally {
       dispatch(hideLoading());
     }

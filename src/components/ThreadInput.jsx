@@ -18,42 +18,39 @@ function ThreadInput({ addThread }) {
   return (
     <Container
       fluid
-      className='pt-5 pb-4 px-5 d-flex flex-column gap-3 justify-content-center align-items-center'
+      className="pt-5 pb-4 px-5 d-flex flex-column gap-3 justify-content-center align-items-center"
     >
-      <div className='w-50'>
-        <p className='text-start fs-4 fw-semibold'>Buat Diskusi Baru</p>
+      <div className="w-50">
+        <p className="text-start fs-4 fw-semibold">Buat Diskusi Baru</p>
 
         <Card>
           <Card.Body>
             <InputGroup>
-              <FloatingLabel controlId='floatingInputJudul' label='Judul'>
+              <FloatingLabel controlId="floatingInputJudul" label="Judul">
                 <Form.Control
-                  placeholder='Judul'
+                  placeholder="Judul"
                   value={title}
                   onChange={handleTitleChange}
                 />
               </FloatingLabel>
             </InputGroup>
-            <InputGroup className='mt-3'>
-              <FloatingLabel
-                controlId='floatingInputKategori'
-                label='Kategori'
-              >
+            <InputGroup className="mt-3">
+              <FloatingLabel controlId="floatingInputKategori" label="Kategori">
                 <Form.Control
-                  placeholder='Kategori'
+                  placeholder="Kategori"
                   value={category}
                   onChange={handleCategoryChange}
                 />
               </FloatingLabel>
             </InputGroup>
             <FloatingLabel
-              className='mt-3'
-              controlId='floatingTextarea'
-              label='Apa yang mau kamu bahas?'
+              className="mt-3"
+              controlId="floatingTextarea"
+              label="Apa yang mau kamu bahas?"
             >
               <Form.Control
-                as='textarea'
-                placeholder='Apa yang mau kamu bahas?'
+                as="textarea"
+                placeholder="Apa yang mau kamu bahas?"
                 value={body}
                 style={{ height: '100px' }}
                 onChange={handleBodyChange}
@@ -61,9 +58,9 @@ function ThreadInput({ addThread }) {
             </FloatingLabel>
 
             <Button
-              variant='secondary'
-              className='w-100 mt-3'
-              type='submit'
+              variant="secondary"
+              className="w-100 mt-3"
+              type="submit"
               onClick={onSubmitHandler}
             >
               Thread

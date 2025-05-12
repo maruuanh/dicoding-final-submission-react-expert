@@ -18,18 +18,12 @@ function ThreadItem({
   owner,
   authUser,
   upVote,
-  downVote,
+  onDownVote,
   neutralizeVote,
 }) {
   const navigate = useNavigate();
   const onThreadClick = () => {
     navigate(`/threads/${id}`);
-  };
-
-  const onThreadPress = (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      navigate(`/threads/${id}`);
-    }
   };
 
   const handleUpVote = () => {
@@ -39,8 +33,8 @@ function ThreadItem({
   };
 
   const handleDownVote = () => {
-    if (downVote) {
-      downVote(id);
+    if (onDownVote) {
+      onDownVote(id);
     }
   };
 
@@ -51,25 +45,24 @@ function ThreadItem({
   };
 
   return (
-    <Card className='my-3' key={id}>
+    <Card className="my-3" key={id}>
       <Card.Body>
         <Card.Title>
-          <div className='category'>
-            <CategoryBadge category={category} />
+          <div className="category">
+            <CategoryBadge category={category} setPointer={false} />
           </div>
           <div
-            className='title fw-semibold text-primary mt-3'
+            className="title fw-semibold text-primary mt-3"
             onClick={onThreadClick}
-            onKeyDown={onThreadPress}
-            role='button'
+            role="button"
             tabIndex={0}
           >
             {title}
           </div>
         </Card.Title>
-        <div className='card-text'>
-          <div className='content'>{parser(body)}</div>
-          <div className='upvotes_downvotes_comments_created-at mt-2'>
+        <div className="card-text">
+          <div className="content">{parser(body)}</div>
+          <div className="upvotes_downvotes_comments_created-at mt-2">
             <UpDownVoteComment
               upVotesBy={upVotesBy}
               downVotesBy={downVotesBy}
@@ -100,7 +93,8 @@ ThreadItem.propTypes = {
   totalComments: PropTypes.number,
   authUser: PropTypes.string,
   upVote: PropTypes.func,
-  owner: PropTypes.string,
+  onDownVote: PropTypes.func,
+  owner: PropTypes.object.isRequired,
   downVote: PropTypes.func,
   neutralizeVote: PropTypes.func,
 };

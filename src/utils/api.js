@@ -220,7 +220,6 @@ const api = (() => {
   }
 
   async function createComment({ threadId, content }) {
-    console.log(content);
     const response = await _fetchWithAuth(
       `${BASE_URL}/threads/${threadId}/comments`,
       {
@@ -233,7 +232,17 @@ const api = (() => {
     );
 
     const responseJson = await response.json();
-    return responseJson.data;
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const {
+      data: { comment },
+    } = responseJson;
+
+    return comment;
   }
 
   async function upVoteComment(threadId, commentId) {
@@ -318,6 +327,7 @@ const api = (() => {
   }
 
   return {
+    BASE_URL,
     putAccessToken,
     getAccessToken,
     register,

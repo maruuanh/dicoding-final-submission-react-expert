@@ -54,11 +54,14 @@ function UpDownVoteComment({
   };
 
   return (
-    <div className='d-flex align-items-center gap-2'>
-      <div className='upvotes d-flex align-items-center gap-1'>
+    <div className="d-flex align-items-center gap-2">
+      <div
+        data-testid="upvote"
+        className="upvotes d-flex align-items-center gap-1"
+      >
         {isInteractive ? (
           <button
-            className='border-0 bg-transparent'
+            className="border-0 bg-transparent"
             style={{
               padding: 0,
               margin: 0,
@@ -75,10 +78,13 @@ function UpDownVoteComment({
         )}
         <span>{upVotesBy.length}</span>
       </div>
-      <div className='downvotes d-flex align-items-center gap-1'>
+      <div
+        data-testid="downvote"
+        className="downvotes d-flex align-items-center gap-1"
+      >
         {isInteractive ? (
           <button
-            className='border-0 bg-transparent'
+            className="border-0 bg-transparent"
             style={{
               padding: 0,
               margin: 0,
@@ -96,22 +102,22 @@ function UpDownVoteComment({
         <span>{downVotesBy.length}</span>
       </div>
       {commentCount > 0 && (
-        <div className='comments d-flex align-items-center gap-1'>
+        <div className="comments d-flex align-items-center gap-1">
           <IoChatboxEllipsesOutline />
           <span>{commentCount}</span>
         </div>
       )}
-      <div className='owner d-flex align-items-center gap-1'>
+      <div className="owner d-flex align-items-center gap-1">
         <span>Dibuat oleh </span>
         <img
           src={owner.avatar}
           alt={owner.name}
-          className='rounded-circle'
+          className="rounded-circle"
           style={{ width: '20px', height: '20px' }}
         />
         <span> {owner.name}</span>
       </div>
-      <div className='created-at'>
+      <div className="created-at">
         <span>{postedAt(createdAt)}</span>
       </div>
     </div>
@@ -123,13 +129,13 @@ export default UpDownVoteComment;
 UpDownVoteComment.propTypes = {
   upVotesBy: PropTypes.array.isRequired,
   downVotesBy: PropTypes.array.isRequired,
-  totalComments: PropTypes.number.isRequired,
+  totalComments: PropTypes.number,
   createdAt: PropTypes.string.isRequired,
   owner: PropTypes.object.isRequired,
-  comments: PropTypes.array.isRequired,
-  upVote: PropTypes.func.isRequired,
-  downVote: PropTypes.func.isRequired,
-  neutralizeVote: PropTypes.func.isRequired,
-  authUser: PropTypes.object.isRequired,
+  comments: PropTypes.array,
+  upVote: PropTypes.func,
+  downVote: PropTypes.func,
+  neutralizeVote: PropTypes.func,
+  authUser: PropTypes.string.isRequired,
   isInteractive: PropTypes.bool,
 };

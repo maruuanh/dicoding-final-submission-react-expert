@@ -20,11 +20,15 @@ const asyncPopulateLeaderboards = () => {
       const leaderboards = await api.getLeaderboards();
       dispatch(receiveLeaderboardsActionCreator(leaderboards));
     } catch (error) {
-      console.log(error);
+      alert(error.message);
     } finally {
       dispatch(hideLoading());
     }
   };
 };
 
-export { ActionType, asyncPopulateLeaderboards };
+export {
+  ActionType,
+  asyncPopulateLeaderboards,
+  receiveLeaderboardsActionCreator,
+};

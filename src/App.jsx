@@ -62,7 +62,7 @@ function App() {
             <Route path="/threads/:id" element={<DetailPage />} />
           </Routes>
         </main>
-        <Navigation authUser={authUser} />
+        <Navigation />
       </div>
     </>
   );
