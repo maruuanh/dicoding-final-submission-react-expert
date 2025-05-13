@@ -5,7 +5,6 @@ import {
   upVoteThreadActionCreator,
   downVoteThreadActionCreator,
   neutralizeVoteThreadActionCreator,
-  filterThreadsByCategoryActionCreator,
 } from '../../../states/threads/action';
 import {
   asyncAddThread,

@@ -61,7 +61,7 @@ function UpDownVoteComment({
       >
         {isInteractive ? (
           <button
-            className="border-0 bg-transparent"
+            className={`border-0 bg-transparent ${hasUpVoted ? 'active' : ''}`}
             style={{
               padding: 0,
               margin: 0,
@@ -84,7 +84,7 @@ function UpDownVoteComment({
       >
         {isInteractive ? (
           <button
-            className="border-0 bg-transparent"
+            className={`border-0 bg-transparent ${hasDownVoted ? 'active' : ''}`}
             style={{
               padding: 0,
               margin: 0,
@@ -110,8 +110,8 @@ function UpDownVoteComment({
       <div className="owner d-flex align-items-center gap-1">
         <span>Dibuat oleh </span>
         <img
-          src={owner.avatar}
-          alt={owner.name}
+          src={owner?.avatar}
+          alt={owner?.name}
           className="rounded-circle"
           style={{ width: '20px', height: '20px' }}
         />

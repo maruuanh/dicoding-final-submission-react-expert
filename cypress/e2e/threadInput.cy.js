@@ -17,6 +17,7 @@ describe('ThreadInput spec', () => {
         },
       },
     }).as('getProfile');
+
     cy.visit('http://localhost:5173/', {
       onBeforeLoad(win) {
         cy.stub(win, 'alert').as('alert');
