@@ -10,9 +10,7 @@
     "preview": "vite preview",
     "test": "jest",
     "e2e": "cypress run",
-    "ci:test": "jest && start-server-and-test dev http-get://0.0.0.0:5173 e2e",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "ci:test": "jest && start-server-and-test dev http-get://0.0.0.0:5173 e2e"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
@@ -33,13 +31,6 @@
     "@babel/preset-react": "^7.27.1",
     "@chromatic-com/storybook": "^3.2.6",
     "@eslint/js": "^9.25.0",
-    "@storybook/addon-essentials": "^8.6.12",
-    "@storybook/addon-onboarding": "^8.6.12",
-    "@storybook/blocks": "^8.6.12",
-    "@storybook/experimental-addon-test": "^8.6.12",
-    "@storybook/react": "^8.6.12",
-    "@storybook/react-vite": "^8.6.12",
-    "@storybook/test": "^8.6.12",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
@@ -65,7 +56,6 @@
     "prettier": "^3.5.3",
     "prop-types": "^15.8.1",
     "start-server-and-test": "^2.0.11",
-    "storybook": "^8.6.12",
     "vite": "^6.2.0",
     "vitest": "^3.1.2"
   }
