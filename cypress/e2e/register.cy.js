@@ -77,7 +77,7 @@ describe('Register Spec', () => {
 
   it('should display login page when username, email, and password are correct and successfully registered', () => {
     cy.get('input[placeholder="Name"]').type('Sally Van');
-    cy.get('input[placeholder="Email"]').type('sally@email.com');
+    cy.get('input[placeholder="Email"]').type('sallyv23@gmail.com');
     cy.get('input[placeholder="Password"]').type('sallyvan');
     cy.get('button')
       .contains(/^Register$/)
