@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test": "jest",
     "e2e": "cypress run",
-    "ci:test": "jest && start-server-and-test dev http-get://0.0.0.0:5173 e2e"
+    "ci:test": "jest && start-server-and-test dev http://localhost:5173 e2e"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
