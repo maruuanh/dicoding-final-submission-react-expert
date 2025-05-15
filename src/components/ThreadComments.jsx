@@ -55,11 +55,11 @@ function ThreadComments({
             <div className="content mt-2">
               <p className="fs-6">{comment.content}</p>
             </div>
-            <div
-              data-testid={`upvote-${comment.id}`}
-              className="d-flex align-items-center gap-2"
-            >
-              <p className="fs-6 d-flex align-items-center gap-1">
+            <div className="d-flex align-items-center gap-2">
+              <div
+                data-testid={`upvote-${comment.id}`}
+                className="d-flex align-items-center gap-1"
+              >
                 <button
                   className="btn p-0"
                   onClick={onUpVote}
@@ -68,10 +68,10 @@ function ThreadComments({
                   <MdOutlineThumbUp />
                 </button>
                 {comment.upVotesBy.length}
-              </p>
-              <p
+              </div>
+              <div
                 data-testid={`downvote-${comment.id}`}
-                className="fs-6 d-flex align-items-center gap-1"
+                className="d-flex align-items-center gap-1"
               >
                 <button
                   className="btn p-0"
@@ -81,7 +81,7 @@ function ThreadComments({
                   <MdOutlineThumbDown />
                 </button>
                 {comment.downVotesBy.length}
-              </p>
+              </div>
             </div>
           </div>
         );
