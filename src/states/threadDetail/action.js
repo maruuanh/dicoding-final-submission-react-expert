@@ -104,7 +104,6 @@ function asyncUpVoteComment(commentId) {
     const { authUser, threadDetail } = getState();
     dispatch(upVoteCommentActionCreator(authUser.id, commentId));
 
-    
     try {
       await api.upVoteComment(threadDetail.id, commentId);
     } catch (error) {

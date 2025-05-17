@@ -149,11 +149,11 @@ describe('threadDetailReducer function', () => {
       comments: initialState.comments.map((comment) =>
         comment.id === action.payload.commentId
           ? {
-              ...comment,
-              upVotesBy: comment.upVotesBy.includes(action.payload.userId)
-                ? comment.upVotesBy.filter((id) => id !== action.payload.userId)
-                : comment.upVotesBy.concat(action.payload.userId),
-            }
+            ...comment,
+            upVotesBy: comment.upVotesBy.includes(action.payload.userId)
+              ? comment.upVotesBy.filter((id) => id !== action.payload.userId)
+              : comment.upVotesBy.concat(action.payload.userId),
+          }
           : comment
       ),
     });
@@ -201,13 +201,13 @@ describe('threadDetailReducer function', () => {
       comments: initialState.comments.map((comment) =>
         comment.id === action.payload.commentId
           ? {
-              ...comment,
-              downVotesBy: comment.downVotesBy.includes(action.payload.userId)
-                ? comment.downVotesBy.filter(
-                    (id) => id !== action.payload.userId
-                  )
-                : comment.downVotesBy.concat(action.payload.userId),
-            }
+            ...comment,
+            downVotesBy: comment.downVotesBy.includes(action.payload.userId)
+              ? comment.downVotesBy.filter(
+                (id) => id !== action.payload.userId
+              )
+              : comment.downVotesBy.concat(action.payload.userId),
+          }
           : comment
       ),
     });
@@ -257,14 +257,14 @@ describe('threadDetailReducer function', () => {
       comments: initialState.comments.map((comment) =>
         comment.id === action.payload.commentId
           ? {
-              ...comment,
-              upVotesBy: comment.upVotesBy.filter(
-                (id) => id !== action.payload.userId
-              ),
-              downVotesBy: comment.downVotesBy.filter(
-                (id) => id !== action.payload.userId
-              ),
-            }
+            ...comment,
+            upVotesBy: comment.upVotesBy.filter(
+              (id) => id !== action.payload.userId
+            ),
+            downVotesBy: comment.downVotesBy.filter(
+              (id) => id !== action.payload.userId
+            ),
+          }
           : comment
       ),
     });

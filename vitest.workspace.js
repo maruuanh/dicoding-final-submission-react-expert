@@ -7,6 +7,7 @@ import { storybookTest } from '@storybook/experimental-addon-test/vitest-plugin'
 
 const dirname =
   typeof __dirname !== 'undefined'
+    // eslint-disable-next-line no-undef
     ? __dirname
     : path.dirname(fileURLToPath(import.meta.url));
 

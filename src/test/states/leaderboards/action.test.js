@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { asyncPopulateLeaderboards } from '../../../states/leaderboards/action';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import { receiveLeaderboardsActionCreator } from '../../../states/leaderboards/action';

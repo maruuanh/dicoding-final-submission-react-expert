@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import { screen, render, fireEvent, cleanup } from '@testing-library/react';
 import ThreadComments from '../../components/ThreadComments';

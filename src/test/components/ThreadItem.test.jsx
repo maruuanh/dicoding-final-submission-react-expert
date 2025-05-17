@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import ThreadItem from '../../components/ThreadItem';

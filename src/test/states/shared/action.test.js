@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import api from '../../../utils/api';
 import { asyncPopulateUsersAndThreads } from '../../../states/shared/action';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import api from '../../../utils/api';
 import { setIsPreloadActionCreator } from '../../../states/isPreload/action';
 import { asyncPreloadProcess } from '../../../states/isPreload/action';

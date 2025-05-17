@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { loadingBarReducer } from 'react-redux-loading-bar';
@@ -23,7 +23,7 @@ describe('Loading component', () => {
       </Provider>
     );
 
-    const loadingBar = document.querySelector('.loading-container');
+    const loadingBar = container.querySelector('.loading-container');
     expect(loadingBar).toBeInTheDocument();
   });
   it('should not render loading bar when loadingBar is 0', () => {
@@ -43,7 +43,7 @@ describe('Loading component', () => {
       </Provider>
     );
 
-    const loadingBar = document.querySelector('.loading-container');
+    const loadingBar = container.querySelector('.loading-container');
     expect(loadingBar).toBeInTheDocument();
   });
 });

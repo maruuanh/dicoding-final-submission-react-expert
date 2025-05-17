@@ -1,5 +1,5 @@
+/* eslint-disable no-undef */
 import api from '../../../utils/api';
-import { receiveUsersActionCreator } from '../../../states/users/action';
 import { asyncRegisterUser } from '../../../states/users/action';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 

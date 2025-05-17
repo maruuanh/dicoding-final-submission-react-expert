@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker/locale/id_ID';
+
 describe('Register Spec', () => {
   beforeEach(() => {
     cy.visit('http://localhost:5173/register', {
@@ -58,9 +60,13 @@ describe('Register Spec', () => {
   });
   it('should display alert when password length is less than 6 charcters', () => {
     // mengisi email
-    cy.get('input[placeholder="Name"]').type('Sally Van');
-    cy.get('input[placeholder="Email"]').type('sally@email.com');
-    cy.get('input[placeholder="Password"]').type('sally');
+    const randomName = faker.person.fullName();
+    const randomEmail = faker.internet.email();
+    const randomPassword = faker.internet.password();
+
+    cy.get('input[placeholder="Name"]').type(randomName);
+    cy.get('input[placeholder="Email"]').type(randomEmail);
+    cy.get('input[placeholder="Password"]').type(randomPassword);
     // klik tombol Register tanpa mengisi password
     cy.get('button')
       .contains(/^Register$/)

@@ -47,6 +47,7 @@ describe('threadDetail component', () => {
   });
 
   it('should call onCategoryClick when clicked', () => {
+    // eslint-disable-next-line no-undef
     const handleClick = jest.fn();
     render(<CategoryBadge category="redux" onCategoryClick={handleClick} />);
     const badge = screen.getByText('#redux');

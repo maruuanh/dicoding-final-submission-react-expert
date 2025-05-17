@@ -3,5 +3,8 @@
   "useTabs": false,
   "indentStyle": "space",
   "indentSwitchCase": true,
-  "quotes": ["error", "single"]
+  "quotes": ["error", "single"],
+  "env": {
+    "jest": true
+  }
 }
