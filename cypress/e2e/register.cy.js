@@ -60,13 +60,9 @@ describe('Register Spec', () => {
   });
   it('should display alert when password length is less than 6 charcters', () => {
     // mengisi email
-    const randomName = faker.person.fullName();
-    const randomEmail = faker.internet.email();
-    const randomPassword = faker.internet.password();
-
-    cy.get('input[placeholder="Name"]').type(randomName);
-    cy.get('input[placeholder="Email"]').type(randomEmail);
-    cy.get('input[placeholder="Password"]').type(randomPassword);
+    cy.get('input[placeholder="Name"]').type('Sally Van');
+    cy.get('input[placeholder="Email"]').type('sallyv23@gmail.com');
+    cy.get('input[placeholder="Password"]').type('sally');
     // klik tombol Register tanpa mengisi password
     cy.get('button')
       .contains(/^Register$/)
@@ -82,9 +78,14 @@ describe('Register Spec', () => {
   });
 
   it('should display login page when username, email, and password are correct and successfully registered', () => {
-    cy.get('input[placeholder="Name"]').type('Sally Van');
-    cy.get('input[placeholder="Email"]').type('sally@email.com');
-    cy.get('input[placeholder="Password"]').type('sallyvan');
+    const randomName = faker.person.fullName();
+    const randomEmail = faker.internet.email();
+    const randomPassword = faker.internet.password();
+
+    cy.get('input[placeholder="Name"]').type(randomName);
+    cy.get('input[placeholder="Email"]').type(randomEmail);
+    cy.get('input[placeholder="Password"]').type(randomPassword);
+
     cy.get('button')
       .contains(/^Register$/)
       .click();

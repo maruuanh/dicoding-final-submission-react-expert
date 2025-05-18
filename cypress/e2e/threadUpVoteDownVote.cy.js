@@ -16,32 +16,28 @@ describe('threadUpVoteDownVote spec', () => {
             avatar: 'https://generated-avatar.jpg',
           },
         },
-      }
+      },
     }).as('getOwnProfile');
     cy.intercept('GET', `${baseUrl}/threads`, {
       statusCode: 200,
       body: {
-        'status': 'success',
-        'message': 'ok',
-        'data': {
-          'threads': [
+        status: 'success',
+        message: 'ok',
+        data: {
+          threads: [
             {
-              'id': 'thread-Np47p4jhUXYhrhRn',
-              'title': 'Bagaimana pengalamanmu belajar Redux?',
-              'body': 'Coba ceritakan dong, gimana pengalaman kalian belajar Redux di Dicoding?',
-              'category': 'redux',
-              'createdAt': '2023-05-29T07:55:52.266Z',
-              'ownerId': 'user-mQhLzINW_w5TxxYf',
-              'totalComments': 1,
-              'upVotesBy': [
-                'user-mQhLzINW_w5TxxYf',
-                'user-TG9rOZN4V6maJ7gl'
-              ],
-              'downVotesBy': []
+              id: 'thread-Np47p4jhUXYhrhRn',
+              title: 'Bagaimana pengalamanmu belajar Redux?',
+              body: 'Coba ceritakan dong, gimana pengalaman kalian belajar Redux di Dicoding?',
+              category: 'redux',
+              createdAt: '2023-05-29T07:55:52.266Z',
+              ownerId: 'user-mQhLzINW_w5TxxYf',
+              totalComments: 1,
+              upVotesBy: ['user-mQhLzINW_w5TxxYf', 'user-TG9rOZN4V6maJ7gl'],
+              downVotesBy: [],
             },
-
-          ]
-        }
+          ],
+        },
       },
     }).as('getThreads');
 
@@ -58,7 +54,6 @@ describe('threadUpVoteDownVote spec', () => {
   });
 
   it('should display upvote and downvote button in thread', () => {
-
     cy.wait('@getThreads');
     cy.get('div[data-testid="upvote"]');
     cy.get('div[data-testid="downvote"]');
@@ -77,27 +72,62 @@ describe('threadUpVoteDownVote spec', () => {
       .should('be.visible');
   });
 
-  it('should display blue-colored upvote of thread when clicked', () => {
+  it('should display blue-colored on upvote button when clicked', () => {
     cy.intercept('POST', `${baseUrl}/threads/thread-Np47p4jhUXYhrhRn/up-vote`, {
       statusCode: 200,
       body: {
-        'status': 'success',
-        'message': 'Thread upvoted',
-        'data': {
-          'vote': {
-            'id': 'vote-1',
-            'userId': 'user-1',
-            'threadId': 'thread-Np47p4jhUXYhrhRn',
-            'voteType': 1
-          }
-        }
+        status: 'success',
+        message: 'Thread upvoted',
+        data: {
+          vote: {
+            id: 'vote-1',
+            userId: 'user-1',
+            threadId: 'thread-Np47p4jhUXYhrhRn',
+            voteType: 1,
+          },
+        },
       },
     }).as('onUpVote');
 
-    cy.get('div[data-testid="upvote"] button').click().should('have.class', 'active');
+    cy.get('div[data-testid="upvote"] button')
+      .click()
+      .should('have.class', 'active');
     cy.wait('@onUpVote');
-
-    cy.contains('div[data-testid="upvote"] button');
+    cy.get('div[data-testid="upvote"] button').should(
+      'have.css',
+      'color',
+      'rgb(0, 0, 255)'
+    );
   });
+  it('should display red-colored on downvote button when clicked', () => {
+    cy.intercept(
+      'POST',
+      `${baseUrl}/threads/thread-Np47p4jhUXYhrhRn/down-vote`,
+      {
+        statusCode: 200,
+        body: {
+          status: 'success',
+          message: 'Thread downvoted',
+          data: {
+            vote: {
+              id: 'vote-1',
+              userId: 'user-1',
+              threadId: 'thread-Np47p4jhUXYhrhRn',
+              voteType: -1,
+            },
+          },
+        },
+      }
+    ).as('onDownVote');
 
+    cy.get('div[data-testid="downvote"] button')
+      .click()
+      .should('have.class', 'active');
+    cy.wait('@onDownVote');
+    cy.get('div[data-testid="downvote"] button').should(
+      'have.css',
+      'color',
+      'rgb(255, 0, 0)'
+    );
+  });
 });

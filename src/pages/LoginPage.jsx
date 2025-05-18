@@ -27,7 +27,7 @@ function LoginPage() {
               <div className="text-center mb-4">
                 <IoEarthOutline size={50} className="text-primary" />
                 <h2 className="mt-3">
-                  Dicoding <strong>Threads</strong>
+                  Dicoding <strong>Threads</strong> App
                 </h2>
                 <h5>Open your thoughts</h5>
               </div>

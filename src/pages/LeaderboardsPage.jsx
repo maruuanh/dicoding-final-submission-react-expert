@@ -29,7 +29,7 @@ const LeaderboardsPage = () => {
               key={leaderboard.user.id}
               className="d-flex justify-content-between align-items-center mb-2"
             >
-              <div className="profile-leaderboard d-flex align-items-center">
+              <div className="leaderboard-profile d-flex align-items-center">
                 <img
                   src={leaderboard.user.avatar}
                   alt="avatar"
@@ -37,9 +37,13 @@ const LeaderboardsPage = () => {
                   width={40}
                   height={40}
                 />
-                <span className="mx-2 fs-6">{leaderboard.user.name}</span>
+                <span className="leaderboard-profile-username mx-2 fs-6">
+                  {leaderboard.user.name}
+                </span>
               </div>
-              <span className="mx-2 fs-4">{leaderboard.score}</span>
+              <span className="leaderboard-score mx-2 fs-4">
+                {leaderboard.score}
+              </span>
             </div>
           ))}
         </Card.Body>
