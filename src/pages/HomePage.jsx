@@ -48,7 +48,6 @@ function HomePage() {
     owner: users.find((user) => user.id === thread.ownerId),
     authUser: authUser.id,
   }));
-  console.log(threadList);
   return (
     <div className="home-page">
       <ThreadInput addThread={onAddThread} />

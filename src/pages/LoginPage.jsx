@@ -11,7 +11,7 @@ function LoginPage() {
     try {
       dispatch(asyncSetAuthUser({ email, password }));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
