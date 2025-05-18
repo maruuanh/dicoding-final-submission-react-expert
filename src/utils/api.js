@@ -126,7 +126,6 @@ const api = (() => {
     const {
       data: { detailThread: thread },
     } = responseJson;
-    console.log(thread);
     return thread;
   }
 
