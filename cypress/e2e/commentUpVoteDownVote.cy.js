@@ -1,4 +1,3 @@
-/* eslint-disable cypress/unsafe-to-chain-command */
 import api from '../../src/utils/api';
 describe('commentUpVoteDownVote spec', () => {
   const baseUrl = api.BASE_URL;
