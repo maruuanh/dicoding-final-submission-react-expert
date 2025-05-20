@@ -1,3 +1,10 @@
+/**
+ test scenario for asyncPopulateLeaderboards
+ - asyncPopulateLeaderboards action
+  - should dispatch action correctly when data fetching success
+  - should dispatch action and call alert correctly when data fetching failed
+*/
+
 /* eslint-disable no-undef */
 import { asyncPopulateLeaderboards } from '../../../states/leaderboards/action';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';

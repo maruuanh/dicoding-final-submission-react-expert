@@ -1,3 +1,10 @@
+/**
+ test scenario for leaderboardsReducer
+ - leaderboardsReducer reducer
+  - should return the initial state when given by unknown action
+  - should return the leaderboards when given by RECEIVE_LEADERBOARDS action
+*/
+
 import leaderboardsReducer from '../../../states/leaderboards/reducer';
 
 describe('leaderboardsReducer function', () => {

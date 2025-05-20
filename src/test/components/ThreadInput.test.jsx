@@ -1,9 +1,16 @@
+/**
+ test scenario for ThreadInput
+ - ThreadInput component
+  - should handle title typing correctly
+  - should handle category typing correctly
+  - should handle content typing correctly
+*/
+
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ThreadInput from '../../components/ThreadInput';
 
-// Custom matcher untuk toHaveValue
 /**
  * @jest-environment jsdom
  */
@@ -31,7 +38,7 @@ describe('ThreadInput component', () => {
   });
 
   it('should handle title typing correctly', async () => {
-    render(<ThreadInput addThread={() => {}} />);
+    render(<ThreadInput addThread={() => { }} />);
     const titleInput = await screen.getByPlaceholderText('Judul');
 
     await userEvent.type(titleInput, 'Pengenalan Redux');
@@ -39,7 +46,7 @@ describe('ThreadInput component', () => {
     expect(titleInput).toHaveValue('Pengenalan Redux');
   });
   it('should handle category typing correctly', async () => {
-    render(<ThreadInput addThread={() => {}} />);
+    render(<ThreadInput addThread={() => { }} />);
     const categoryInput = await screen.getByPlaceholderText('Kategori');
 
     await userEvent.type(categoryInput, 'Pemrograman');
@@ -47,7 +54,7 @@ describe('ThreadInput component', () => {
     expect(categoryInput).toHaveValue('Pemrograman');
   });
   it('should handle content typing correctly', async () => {
-    render(<ThreadInput addThread={() => {}} />);
+    render(<ThreadInput addThread={() => { }} />);
     const contentInput = await screen.getByPlaceholderText(
       'Apa yang mau kamu bahas?'
     );

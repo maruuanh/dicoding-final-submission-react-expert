@@ -1,3 +1,18 @@
+/**
+ test scenario for receiveThreadDetailActionCreator
+ - receiveThreadDetailActionCreator action
+  - should dispatch correct actions on success
+  - should dispatch action and call alert correctly when data fetching failed
+  - should dispatch correct add comment action on success
+  - should dispatch error alert add comment action on failure
+  - should dispatch upVoteComment action on success
+  - should call alert and dispatch rollback action when upVoteComment fails
+  - should dispatch downVoteComment action on success
+  - should call alert and dispatch rollback action when downVoteComment fails
+  - should dispatch neutralizeVoteComment action on success
+  - should call alert and dispatch rollback action when neutralizeVoteComment fails
+*/
+
 /* eslint-disable no-undef */
 import api from '../../../utils/api';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
@@ -119,6 +134,7 @@ describe('receiveThreadDetailActionCreator thunk', () => {
     );
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
   });
+
   it('should dispatch error alert add comment action on failure', async () => {
     const fakeComment = {
       id: 'comment-2',
@@ -178,6 +194,7 @@ describe('receiveThreadDetailActionCreator thunk', () => {
 
     expect(window.alert).toHaveBeenCalledWith(fakeError.message);
   });
+
   it('should dispatch downVoteComment action on success', async () => {
     const fakeCommentId = 'comment-1';
     const fakeAuthUser = { id: 'user-1' };
@@ -220,6 +237,7 @@ describe('receiveThreadDetailActionCreator thunk', () => {
 
     expect(window.alert).toHaveBeenCalledWith(fakeError.message);
   });
+
   it('should dispatch neutralizeVoteComment action on success', async () => {
     const fakeCommentId = 'comment-1';
     const fakeAuthUser = { id: 'user-1' };

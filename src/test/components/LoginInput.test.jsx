@@ -1,3 +1,10 @@
+/**
+ test scenario for LoginInput
+ - LoginInput component
+  - should handle username typing correctly
+  - should handle password typing correctly
+*/
+
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -31,7 +38,7 @@ describe('LoginInput component', () => {
   });
 
   it('should handle username typing correctly', async () => {
-    render(<LoginInput login={() => {}} />);
+    render(<LoginInput login={() => { }} />);
     const emailInput = await screen.getByPlaceholderText('Email');
 
     await userEvent.type(emailInput, 'test@email.com');
@@ -41,7 +48,7 @@ describe('LoginInput component', () => {
   it('should handle password typing correctly', async () => {
     // Arrange
 
-    render(<LoginInput login={() => {}} />);
+    render(<LoginInput login={() => { }} />);
     const passwordInput = await screen.getByPlaceholderText('Password');
     // Action
     await userEvent.type(passwordInput, 'passwordtest');

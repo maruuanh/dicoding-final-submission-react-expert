@@ -1,3 +1,10 @@
+/**
+ test scenario for ThreadsList
+ - ThreadsList component
+  - should render all threads initially
+  - should filter threads when a category badge is clicked
+*/
+
 /* eslint-disable no-undef */
 import React from 'react';
 import { screen, render, fireEvent, cleanup } from '@testing-library/react';

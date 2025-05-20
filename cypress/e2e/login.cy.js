@@ -1,3 +1,13 @@
+/**
+ test scenario for Login e2e
+ - Login spec
+  - should display login page correctly
+  - should display alert when email is empty
+  - should display alert when password is empty
+  - should display alert when user or password is wrong
+  - should display homepage when email and password are correct
+*/
+
 describe('Login spec', () => {
   beforeEach(() => {
     cy.visit('http://localhost:5173/', {

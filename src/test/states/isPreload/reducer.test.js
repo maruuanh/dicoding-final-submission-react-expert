@@ -1,3 +1,10 @@
+/**
+ test scenario for isPreloadReducer
+ - isPreloadReducer reducer
+  - should return the initial state when given by unknown action
+  - should return is application in preload or not when given by SET_IS_PRELOAD
+*/
+
 import isPreloadReducer from '../../../states/isPreload/reducer';
 
 describe('isPreloadReducer function', () => {

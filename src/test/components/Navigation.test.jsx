@@ -1,3 +1,9 @@
+/**
+ test scenario for Navigation
+ - Navigation component
+  - should render navigation links
+*/
+
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import {

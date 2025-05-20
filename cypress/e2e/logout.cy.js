@@ -1,6 +1,13 @@
+/**
+ test scenario for Logout e2e
+ - Logout spec
+  - should display profile page correctly
+  - should display login page when logout button is clicked
+*/
+
 import api from '../../src/utils/api';
 
-describe('Login spec', () => {
+describe('Logout spec', () => {
   const baseUrl = api.BASE_URL;
   beforeEach(() => {
     window.localStorage.setItem('accessToken', 'user-access-token');
@@ -27,7 +34,7 @@ describe('Login spec', () => {
     cy.wait('@getOwnProfile');
   });
   it('should display profile page correctly', () => {
-    // memverifikasi elemen yang harus tampak pada halaman login
+    // memverifikasi elemen yang harus tampak pada halaman logout
     cy.wait('@getOwnProfile');
     cy.contains('@Jane Doe').should('be.visible');
     cy.contains('janedoe@email.com').should('be.visible');

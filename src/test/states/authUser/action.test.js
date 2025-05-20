@@ -1,3 +1,12 @@
+/**
+ test scenario for asyncSetAuthUser
+ - asyncSetAuthUser action
+  - should dispatch correct actions on success
+  - should dispatch null authUser on failure
+ test scenario for asyncUnsetAuthUser
+  - should clear auth user and token
+*/
+
 /* eslint-disable no-undef */
 import {
   asyncSetAuthUser,
@@ -55,7 +64,7 @@ describe('asyncSetAuthUser', () => {
     const dispatch = jest.fn();
     const credentials = { email: 'wrong@email.com', password: 'wrong' };
 
-    jest.spyOn(window, 'alert').mockImplementation(() => {});
+    jest.spyOn(window, 'alert').mockImplementation(() => { });
 
     await asyncSetAuthUser(credentials)(dispatch);
 

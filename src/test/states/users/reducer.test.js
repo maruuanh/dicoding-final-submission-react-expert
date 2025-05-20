@@ -1,3 +1,10 @@
+/**
+ test scenario for usersReducer
+ - usersReducer reducer
+  - should return the initial state when given by unknown action
+  - should return the users when given by RECEIVE_USERS action
+*/
+
 import usersReducer from '../../../states/users/reducer';
 
 describe('usersReducer function', () => {

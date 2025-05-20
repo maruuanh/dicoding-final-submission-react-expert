@@ -4,9 +4,12 @@ module.exports = {
   useTabs: false,
   indentStyle: 'space',
   indentSwitchCase: true,
-  extends: ['plugin:jest/recommended'],
+  extends: ['plugin:jest/recommended', 'prettier'],
   env: {
     jest: true,
+  },
+  rules: {
+    indent: ['error', 2, { 'SwitchCase': 1 }]
   },
   plugins: ['jest'],
 };

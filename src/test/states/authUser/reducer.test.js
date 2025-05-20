@@ -1,7 +1,15 @@
+/**
+ test scenario for authUserReducer
+ - authUserReducer reducer
+  - should return the initial state when given by unknown action
+  - should return set user when given by SET_AUTH_USER action
+  - should return unset user when given by UNSET_AUTH_USER action
+*/
+
 import authUserReducer from '../../../states/authUser/reducer';
 
 describe('authUserReducer function', () => {
-  it('Should return the initial state when given by unknown action', () => {
+  it('should return the initial state when given by unknown action', () => {
     const initialState = [];
 
     const action = {
@@ -13,7 +21,7 @@ describe('authUserReducer function', () => {
     expect(nextState).toEqual(initialState);
   });
 
-  it('Should return set user when given by SET_AUTH_USER action', () => {
+  it('should return set user when given by SET_AUTH_USER action', () => {
     const initialState = [];
 
     const action = {
@@ -31,7 +39,8 @@ describe('authUserReducer function', () => {
     const nextState = authUserReducer(initialState, action);
     expect(nextState).toEqual(action.payload.authUser);
   });
-  it('Should return unset user when given by UNSET_AUTH_USER action', () => {
+
+  it('should return unset user when given by UNSET_AUTH_USER action', () => {
     const initialState = {
       id: 'john_doe',
       name: 'John Doe',

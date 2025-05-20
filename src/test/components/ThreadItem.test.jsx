@@ -1,3 +1,10 @@
+/**
+ test scenario for ThreadItem
+ - ThreadItem component
+  - should display thread title, body, category, and owner name
+  - should navigate to detail page when title is clicked
+*/
+
 /* eslint-disable no-undef */
 import React from 'react';
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';

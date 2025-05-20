@@ -1,3 +1,9 @@
+/**
+ test scenario for ThreadReplyInput
+ - ThreadReplyInput component
+  - should handle thread reply typing correctly
+*/
+
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -31,7 +37,7 @@ describe('ThreadReplyInput component', () => {
   });
 
   it('should handle thread reply typing correctly', async () => {
-    render(<ThreadReplyInput replyThread={() => {}} />);
+    render(<ThreadReplyInput replyThread={() => { }} />);
     const replyInput = await screen.getByPlaceholderText('Your reply');
 
     await userEvent.type(replyInput, 'Bagus banget');

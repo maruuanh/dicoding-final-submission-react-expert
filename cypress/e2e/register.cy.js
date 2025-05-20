@@ -1,3 +1,14 @@
+/**
+ test scenario for Register e2e
+ - Register spec
+  - should display register page correctly
+  - should display alert when name is empty
+  - should display alert when email is empty
+  - should display alert when password is empty
+  - should display alert when password length is less than 6 charcters
+  - should display login page when username, email, and password are correct and successfully registered
+*/
+
 import { faker } from '@faker-js/faker/locale/id_ID';
 
 describe('Register Spec', () => {
@@ -17,6 +28,7 @@ describe('Register Spec', () => {
       .contains(/^Register$/)
       .should('be.visible');
   });
+
   it('should display alert when name is empty', () => {
     cy.get('button')
       .contains(/^Register$/)
@@ -27,6 +39,7 @@ describe('Register Spec', () => {
     });
     cy.get('@alert').should('have.been.calledWith', 'Invalid token structure');
   });
+
   it('should display alert when email is empty', () => {
     // mengisi email
     cy.get('input[placeholder="Name"]').type('Jane Doe');
@@ -42,6 +55,7 @@ describe('Register Spec', () => {
     });
     cy.get('@alert').should('have.been.calledWith', 'Invalid token structure');
   });
+
   it('should display alert when password is empty', () => {
     // mengisi email
     cy.get('input[placeholder="Name"]').type('Sally Van');
@@ -58,6 +72,7 @@ describe('Register Spec', () => {
     });
     cy.get('@alert').should('have.been.calledWith', 'Invalid token structure');
   });
+
   it('should display alert when password length is less than 6 charcters', () => {
     // mengisi email
     cy.get('input[placeholder="Name"]').type('Sally Van');

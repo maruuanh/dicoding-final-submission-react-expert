@@ -1,3 +1,11 @@
+/**
+ test scenario for threadUpVoteDownVote e2e
+ - threadUpVoteDownVote spec
+  - should display upvote and downvote button in thread
+  - should display blue-colored on upvote button when clicked
+  - should display red-colored on downvote button when clicked
+*/
+
 /* eslint-disable cypress/unsafe-to-chain-command */
 import api from '../../src/utils/api';
 describe('threadUpVoteDownVote spec', () => {
@@ -99,6 +107,7 @@ describe('threadUpVoteDownVote spec', () => {
       'rgb(0, 0, 255)'
     );
   });
+
   it('should display red-colored on downvote button when clicked', () => {
     cy.intercept(
       'POST',

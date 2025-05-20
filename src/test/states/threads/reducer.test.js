@@ -1,3 +1,14 @@
+/**
+ test scenario for threadsReducer
+ - threadsReducer reducer
+  - should return the initial state when given by unknown action
+  - should return the detail thread when given by RECEIVE_THREADS action
+  - should return the thread with the new talk when given by ADD_THREAD action
+  - should return the thread with an upvoted thread when given by UP_VOTE_THREAD action
+  - should return the thread with a downvoted thread when given by DOWN_VOTE_THREAD action
+  - should return the thread with neither upvoted nor downvoted thread when given by NEUTRALIZE_VOTE_THREAD action
+*/
+
 import threadsReducer from '../../../states/threads/reducer';
 
 describe('threadsReducer function', () => {
@@ -125,6 +136,7 @@ describe('threadsReducer function', () => {
       )
     );
   });
+
   it('should return the thread with a downvoted thread when given by DOWN_VOTE_THREAD action', () => {
     // arrange
     const initialState = [
@@ -165,6 +177,7 @@ describe('threadsReducer function', () => {
       )
     );
   });
+
   it('should return the thread with neither upvoted nor downvoted thread when given by NEUTRALIZE_VOTE_THREAD action', () => {
     // arrange
     const initialState = [

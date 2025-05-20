@@ -1,3 +1,10 @@
+/**
+ test scenario for Loading
+ - Loading component
+  - should render loading bar with redux toolkit store
+  - should not render loading bar when loadingBar is 0
+*/
+
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';

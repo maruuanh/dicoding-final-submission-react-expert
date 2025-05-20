@@ -1,3 +1,10 @@
+/**
+ test scenario for asyncPreloadProcess
+ - asyncPreloadProcess action
+  - should dispatch correct actions on success
+  - should dispatch null on failure
+*/
+
 /* eslint-disable no-undef */
 import api from '../../../utils/api';
 import { setIsPreloadActionCreator } from '../../../states/isPreload/action';

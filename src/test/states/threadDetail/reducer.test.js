@@ -1,3 +1,14 @@
+/**
+ test scenario for threadDetailReducer
+ - threadDetailReducer reducer
+  - should return the initial state when given by unknown action
+  - should return the detail thread when given by RECEIVE_THREAD_DETAIL
+  - should return the detail thread with the new added comment when given by ADD_COMMENT_THREAD_DETAIL
+  - should return the detail thread with an upvoted comment when given by UP_VOTE_COMMENT
+  - should return the detail thread with aa downvoted comment when given by DOWN_VOTE_COMMENT
+  - should return the detail thread with neither upvoted nor downvoted comment when given by NEUTRALIZE_VOTE_COMMENT
+*/
+
 import threadDetailReducer from '../../../states/threadDetail/reducer';
 
 describe('threadDetailReducer function', () => {
@@ -158,6 +169,7 @@ describe('threadDetailReducer function', () => {
       ),
     });
   });
+
   it('Should return the detail thread with aa downvoted comment when given by DOWN_VOTE_COMMENT', () => {
     const initialState = {
       id: 'thread-1',

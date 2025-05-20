@@ -1,3 +1,13 @@
+/**
+ test scenario for CategoryBadge
+ - threadDetail component
+  - should render category name prefixed with #
+  - should have active class when isActive is true
+  - should use pointer cursor when setPointer is true
+  - should use default cursor when setPointer is false
+  - should call onCategoryClick when clicked
+*/
+
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import CategoryBadge from '../../components/CategoryBadge';

@@ -1,3 +1,11 @@
+/**
+ test scenario for RegisterInput
+ - RegisterInput component
+  - should handle name typing correctly
+  - should handle email typing correctly
+  - should handle password typing correctly
+*/
+
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -27,7 +35,7 @@ describe('RegisterInput component', () => {
   });
 
   it('should handle name typing correctly', async () => {
-    render(<RegisterInput register={() => {}} />);
+    render(<RegisterInput register={() => { }} />);
     const nameInput = await screen.getByPlaceholderText('Name');
 
     await userEvent.type(nameInput, 'janedoe');
@@ -35,7 +43,7 @@ describe('RegisterInput component', () => {
     expect(nameInput).toHaveValue('janedoe');
   });
   it('should handle email typing correctly', async () => {
-    render(<RegisterInput register={() => {}} />);
+    render(<RegisterInput register={() => { }} />);
     const emailInput = await screen.getByPlaceholderText('Name');
 
     await userEvent.type(emailInput, 'janedoe@email.com');
@@ -45,7 +53,7 @@ describe('RegisterInput component', () => {
   it('should handle password typing correctly', async () => {
     // Arrange
 
-    render(<RegisterInput register={() => {}} />);
+    render(<RegisterInput register={() => { }} />);
     const passwordInput = await screen.getByPlaceholderText('Password');
     // Action
     await userEvent.type(passwordInput, 'passwordtest');

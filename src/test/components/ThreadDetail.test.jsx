@@ -1,3 +1,9 @@
+/**
+ test scenario for ThreadDetail
+ - ThreadDetail component
+  - should display thread title, body, category, and owner name
+*/
+
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import ThreadDetail from '../../components/ThreadDetail';

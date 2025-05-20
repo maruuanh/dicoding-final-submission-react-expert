@@ -1,3 +1,10 @@
+/**
+ test scenario for asyncPopulateUsersAndThreads
+ - asyncPopulateUsersAndThreads action
+  - should dispatch action correctly when data fetching success
+  - should dispatch action and call alert correctly when data fetching failed
+*/
+
 /* eslint-disable no-undef */
 import api from '../../../utils/api';
 import { asyncPopulateUsersAndThreads } from '../../../states/shared/action';

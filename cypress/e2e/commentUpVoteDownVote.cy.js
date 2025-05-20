@@ -1,3 +1,10 @@
+/**
+ test scenario for commentUpVoteDownVote e2e
+ - commentUpVoteDownVote spec
+  - should display upvote and downvote button in thread
+  - should display blue-colored on upvote button when clicked
+  - should display red-colored on downvote button when clicked
+*/
 import api from '../../src/utils/api';
 describe('commentUpVoteDownVote spec', () => {
   const baseUrl = api.BASE_URL;
@@ -104,6 +111,7 @@ describe('commentUpVoteDownVote spec', () => {
       'rgb(0, 0, 255)'
     );
   });
+
   it('should display red-colored on downvote button when clicked', () => {
     cy.intercept(
       'POST',

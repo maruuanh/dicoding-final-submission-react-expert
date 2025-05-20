@@ -1,3 +1,16 @@
+/**
+ test scenario for receiveThreadsActionCreator
+ - receiveThreadsActionCreator action
+  - should dispatch correct add thread action on success
+  - should dispatch error alert add thread action on failure
+  - should dispatch upVoteThread action on success
+  - should call alert and dispatch rollback action when upVoteThread fails
+  - should dispatch downVoteThread action on success
+  - should call alert and dispatch rollback action when downVoteThread fails
+  - should dispatch neutralizeVoteThread action on success
+  - should call alert and dispatch rollback action when neutralizeVoteThread fails
+*/
+
 /* eslint-disable no-undef */
 import api from '../../../utils/api';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
@@ -79,6 +92,7 @@ describe('receiveThreadsActionCreator thunk', () => {
     expect(dispatch).toHaveBeenCalledWith(addThreadActionCreator(fakeThreads));
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
   });
+
   it('should dispatch error alert add thread action on failure', async () => {
     const fakeThread = {
       title: 'Pengenalan Redux',
@@ -142,6 +156,7 @@ describe('receiveThreadsActionCreator thunk', () => {
 
     expect(window.alert).toHaveBeenCalledWith(fakeError.message);
   });
+
   it('should dispatch downVoteThread action on success', async () => {
     const fakeThreadId = 'thread-1';
     const fakeAuthUser = { id: 'user-1' };
@@ -186,6 +201,7 @@ describe('receiveThreadsActionCreator thunk', () => {
 
     expect(window.alert).toHaveBeenCalledWith(fakeError.message);
   });
+
   it('should dispatch neutralizeVoteThread action on success', async () => {
     const fakeThreadId = 'thread-1';
     const fakeAuthUser = { id: 'user-1' };

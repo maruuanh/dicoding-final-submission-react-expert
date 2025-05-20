@@ -1,3 +1,9 @@
+/**
+ test scenario for showLeaderBoards e2e
+ - showLeaderBoards spec
+  - should display the leaderboards
+*/
+
 import api from '../../src/utils/api';
 
 describe('showLeaderBoards Spec', () => {

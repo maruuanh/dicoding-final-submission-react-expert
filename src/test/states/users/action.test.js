@@ -1,3 +1,9 @@
+/**
+ test scenario for asyncRegisterUser
+ - asyncRegisterUser action
+  - should dispatch action correctly when data fetching success
+*/
+
 /* eslint-disable no-undef */
 import api from '../../../utils/api';
 import { asyncRegisterUser } from '../../../states/users/action';

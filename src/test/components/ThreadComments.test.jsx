@@ -1,3 +1,12 @@
+/**
+ test scenario for ThreadComments
+ - ThreadComments component
+  - should render all comments initially
+  - should call upVote when upvote button is clicked and user has not vote
+  - should call downVote when downvote button is clicked and user has not vote
+  - should call neutralizeVote then upVote when user switches from downvote to upvote
+*/
+
 /* eslint-disable no-undef */
 import React from 'react';
 import { screen, render, fireEvent, cleanup } from '@testing-library/react';
